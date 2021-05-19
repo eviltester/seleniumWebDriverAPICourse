@@ -1,0 +1,28 @@
+{
+  "capabilities":
+      [
+        {
+          "platform": "YOSEMITE",
+          "browserName": "firefox",
+          "maxInstances": 5,
+          "seleniumProtocol": "WebDriver"
+        },
+        {
+          "platform": "YOSEMITE",
+          "browserName": "chrome",
+          "maxInstances": 5,
+          "seleniumProtocol": "WebDriver"
+        }
+      ],
+  "configuration":
+  {
+    "proxy": "org.openqa.grid.selenium.proxy.DefaultRemoteProxy",
+    "maxSession": 5,
+    "port": 5555,
+    "host": "192.168.1.148",
+    "register": true,
+    "registerCycle": 5000,
+    "hubHost": "192.168.1.131",
+    "hubPort": 4444
+  }
+}
