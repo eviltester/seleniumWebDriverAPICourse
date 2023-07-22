@@ -18,8 +18,8 @@ public class AFirstFindByExampleTest {
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
         driver = Driver.get();
-        driver.get("http://www.compendiumdev.co.uk/" +
-                "selenium/find_by_playground.php");
+        driver.get("https://testpages.herokuapp.com/" +
+                "find_by_playground.php");
     }
 
     @Test

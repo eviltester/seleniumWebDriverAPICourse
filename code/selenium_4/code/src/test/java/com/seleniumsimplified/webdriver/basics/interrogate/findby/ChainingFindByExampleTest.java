@@ -22,8 +22,8 @@ public class ChainingFindByExampleTest {
         //driver = new FirefoxDriver();
         //driver.get("http://www.compendiumdev.co.uk" +
         //        "/selenium/find_by_playground.php");
-        driver = Driver.get("http://www.compendiumdev.co.uk" +
-                        "/selenium/find_by_playground.php");
+        driver = Driver.get("https://testpages.herokuapp.com/" +
+                        "find_by_playground.php");
     }
 
     @Test

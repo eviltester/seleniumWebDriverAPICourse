@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
+
 import static org.hamcrest.Matchers.greaterThan;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
@@ -18,7 +20,7 @@ public class NavigationBasicsTest {
 
     static WebDriver driver;
     final private String PROTOCOL = "http";
-    final private String DOMAIN = "www.compendiumdev.co.uk";
+    final private String DOMAIN = "testpages.herokuapp.com";
     final private String ROOT_URL = PROTOCOL + "://" + DOMAIN;
 
     @BeforeClass
@@ -29,15 +31,15 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithGet(){
-        driver.get(ROOT_URL + "/selenium");
+        driver.get(ROOT_URL + "/styled/index.html");
 
         assertTrue(driver.getTitle().startsWith(
-                    "Selenium Simplified"));
+                    "Selenium"));
     }
 
     @Test
     public void navigateWithNavigateTo(){
-        driver.navigate().to(ROOT_URL + "/selenium/search.php");
+        driver.navigate().to(ROOT_URL + "/search.php");
 
         assertTrue(driver.getTitle().startsWith(
                    "Selenium Simplified Search Engine"));
@@ -45,7 +47,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithNavigateToURL() throws MalformedURLException {
-        URL searchPage = new URL(PROTOCOL,DOMAIN,"/selenium/search.php");
+        URL searchPage = new URL(PROTOCOL,DOMAIN,"/search.php");
 
         driver.navigate().to(searchPage);
 
@@ -55,10 +57,10 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithNavigateBackAndForward(){
-        driver.navigate().to(ROOT_URL + "/selenium/basic_html_form.html");
+        driver.navigate().to(ROOT_URL + "/basic_html_form.html");
         assertTrue(driver.getTitle().startsWith("HTML Form Elements"));
 
-        driver.navigate().to(ROOT_URL + "/selenium/basic_web_page.html");
+        driver.navigate().to(ROOT_URL + "/basic_web_page.html");
         assertTrue(driver.getTitle().startsWith("Basic Web Page Title"));
 
         driver.navigate().back();
@@ -70,7 +72,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithRefresh(){
-        driver.navigate().to(ROOT_URL + "/selenium/refresh.php");
+        driver.navigate().to(ROOT_URL + "/refresh.php");
 
         final String refreshTitleConstant = "Refreshed Page on ";
         String pageTitle = driver.getTitle();
@@ -95,7 +97,7 @@ public class NavigationBasicsTest {
         //        assertTrue(driver.getTitle().
         //              startsWith(refreshTitleConstant));
 
-        new WebDriverWait(driver,10).until(titleIsNoLonger(pageTitle));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(titleIsNoLonger(pageTitle));
 
 
         long endTime = Long.parseLong(

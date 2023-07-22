@@ -44,7 +44,7 @@ public class ChromeDriverTest {
 
         WebDriver chrome = new ChromeDriver();
 
-        chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        chrome.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(chrome.getTitle(), is("HTML Form Elements"));
 
@@ -73,7 +73,7 @@ public class ChromeDriverTest {
 
         WebDriver chrome = new ChromeDriver(options);
 
-        chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        chrome.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(chrome.getTitle(), is("HTML Form Elements"));
 
@@ -99,7 +99,7 @@ public class ChromeDriverTest {
 
             WebDriver chrome = new ChromeDriver(options);
 
-            chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            chrome.get("https://testpages.herokuapp.com/basic_html_form.html");
 
             assertThat(chrome.getTitle(), is("HTML Form Elements"));
 

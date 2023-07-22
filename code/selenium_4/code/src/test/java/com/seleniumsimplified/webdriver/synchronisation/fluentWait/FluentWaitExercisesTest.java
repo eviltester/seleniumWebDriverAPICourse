@@ -25,7 +25,7 @@ public class FluentWaitExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
 
@@ -36,7 +36,7 @@ public class FluentWaitExercisesTest {
 
         countdown = driver.findElement(By.id("javascript_countdown_time"));
 
-        new WebDriverWait(driver,10).
+        new WebDriverWait(driver,Duration.ofSeconds(10)).
                 until(ExpectedConditions.visibilityOf(countdown));
     }
 
@@ -71,7 +71,7 @@ public class FluentWaitExercisesTest {
     @Test
     public void waitForTimeWithWebDriverWaitFunction(){
 
-        String theTime = new WebDriverWait(driver,20,100).
+        String theTime = new WebDriverWait(driver,Duration.ofSeconds(20),Duration.ofMillis(100)).
                 until(new Function<WebDriver, String>() {
                     @Override
                     public String apply(WebDriver driver) {
@@ -94,7 +94,7 @@ public class FluentWaitExercisesTest {
     @Test
     public void waitForTimeWithWebDriverWaitExpectedCondition(){
 
-        String theTime = new WebDriverWait(driver,20,100).
+        String theTime = new WebDriverWait(driver,Duration.ofSeconds(20),Duration.ofMillis(100)).
                 until(new ExpectedCondition<String>() {
                     @Override
                     public String apply(WebDriver driver) {

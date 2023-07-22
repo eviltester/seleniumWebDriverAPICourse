@@ -17,7 +17,7 @@ public class ManipulateWhatHappensIfTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                             "basic_html_form.html");
     }
 

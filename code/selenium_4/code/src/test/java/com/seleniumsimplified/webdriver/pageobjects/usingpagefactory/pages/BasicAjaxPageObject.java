@@ -13,6 +13,8 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.LoadableComponent;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class BasicAjaxPageObject extends LoadableComponent<BasicAjaxPageObject> {
 
     WebDriver driver;
@@ -63,7 +65,7 @@ public class BasicAjaxPageObject extends LoadableComponent<BasicAjaxPageObject> 
 
     @Override
     protected void load() {
-        driver.get("http://compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver.get("https://testpages.herokuapp.com/basic_ajax.html");
     }
 
     @Override
@@ -78,7 +80,7 @@ public class BasicAjaxPageObject extends LoadableComponent<BasicAjaxPageObject> 
 
     public void selectCategory(Category category) {
         categorySelect.findElement(By.cssSelector("option[value='" + category.value() + "']")).click();
-        new WebDriverWait(driver,10).until(ajaxActionIsComplete());
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ajaxActionIsComplete());
     }
 
     public ExpectedCondition<Boolean> ajaxActionIsComplete() {

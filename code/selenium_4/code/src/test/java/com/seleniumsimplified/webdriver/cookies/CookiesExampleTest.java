@@ -13,7 +13,7 @@ public class CookiesExampleTest {
     @Test
     public void visitSearchPageAndCheckNoLastSearchCookie(){
 
-        WebDriver driver = Driver.get("http://compendiumdev.co.uk/selenium/search.php");
+        WebDriver driver = Driver.get("https://testpages.herokuapp.com/search.php");
 
         driver.manage().deleteAllCookies();
 

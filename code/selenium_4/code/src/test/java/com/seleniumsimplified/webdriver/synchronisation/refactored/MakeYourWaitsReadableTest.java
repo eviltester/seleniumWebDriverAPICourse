@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
@@ -20,11 +22,10 @@ public class MakeYourWaitsReadableTest {
     @Before
     public void setupForTest(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // instantiate your waits at the highest level you can, to reuse in the test
-        wait = new WebDriverWait(driver,10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
 
     }
 

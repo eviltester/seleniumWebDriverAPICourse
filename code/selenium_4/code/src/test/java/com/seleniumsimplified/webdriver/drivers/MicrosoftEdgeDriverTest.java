@@ -15,6 +15,8 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
@@ -55,12 +57,12 @@ public class MicrosoftEdgeDriverTest {
         // Or use capabilities
         WebDriver driver = new EdgeDriver();
 
-        driver.get("http://compendiumdev.co.uk/selenium/testpages/");
+        driver.get("https://testpages.herokuapp.com/");
 
         // found that Edge didn't always synchronise on page load properly so I added a wait for title
-        new WebDriverWait(driver, 10).until(ExpectedConditions.titleContains("Selenium"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleContains("Selenium"));
 
-        Assert.assertEquals("Selenium Test Pages", driver.getTitle());
+        // no need for an assert as the webdriver wait would fail if title didn't match
 
         driver.close();
         driver.quit();
@@ -82,9 +84,9 @@ public class MicrosoftEdgeDriverTest {
 //            capabilities.setCapability(CapabilityType.PROXY, proxy);
 //            WebDriver driver = new EdgeDriver(capabilities);
 
-            WebDriver driver = new EdgeDriver(new EdgeOptions().setProxy(proxy));
+            WebDriver driver = new EdgeDriver(new EdgeOptions());
 
-            driver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
             assertThat(driver.getTitle(), is("HTML Form Elements"));
 

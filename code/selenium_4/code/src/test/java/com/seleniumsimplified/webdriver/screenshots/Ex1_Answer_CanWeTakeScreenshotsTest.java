@@ -34,11 +34,11 @@ public class Ex1_Answer_CanWeTakeScreenshotsTest {
 
         // Firefox can take screenshots, but the capabilities say that it can't
         // We can no longer use this approach to test if the browser takes screenshots
-        if(capabilityDriver.getCapabilities().is(CapabilityType.TAKES_SCREENSHOT)){
-            System.out.println("Firefox Driver can take screenshots");
-        }else{
-            System.out.println("Firefox Driver can not take screenshots");
-        }
+//        if(capabilityDriver.getCapabilities().is(CapabilityType.TAKES_SCREENSHOT)){
+//            System.out.println("Firefox Driver can take screenshots");
+//        }else{
+//            System.out.println("Firefox Driver can not take screenshots");
+//        }
     }
 
     @Test

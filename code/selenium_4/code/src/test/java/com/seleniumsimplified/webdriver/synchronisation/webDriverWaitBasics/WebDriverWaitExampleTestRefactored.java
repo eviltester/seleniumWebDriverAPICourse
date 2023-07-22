@@ -8,6 +8,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.openqa.selenium.support.ui.ExpectedConditions.titleIs;
 
 public class WebDriverWaitExampleTestRefactored {
@@ -18,10 +20,10 @@ public class WebDriverWaitExampleTestRefactored {
     @Before
     public void gotoPage(){
         driver = Driver.get(
-                "http://compendiumdev.co.uk/selenium/basic_html_form.html");
+                "https://testpages.herokuapp.com/basic_html_form.html");
 
         // create a default wait
-        wait = new WebDriverWait(driver,10);
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
     @Test
@@ -35,7 +37,7 @@ public class WebDriverWaitExampleTestRefactored {
     @Test
     public void constructWaitWithSleepTimeOf50Milliseconds(){
         // use a sleep time of 50 milliseconds
-        wait = new WebDriverWait(driver,10,50);
+        wait = new WebDriverWait(driver,Duration.ofSeconds(10),Duration.ofMillis(50));
 
         wait.until(ExpectedConditions.titleIs("HTML Form Elements"));
     }

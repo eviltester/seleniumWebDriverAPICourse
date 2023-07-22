@@ -15,7 +15,7 @@ public class JavascriptExecutorExampleTest {
     @Test
     public void callAJavaScriptFunctionOnThePage(){
         WebDriver driver = Driver.get(
-                "http://www.compendiumdev.co.uk/selenium/canvas_basic.html");
+                "https://testpages.herokuapp.com/canvas_basic.html");
 
         JavascriptExecutor js =(JavascriptExecutor)driver;
 

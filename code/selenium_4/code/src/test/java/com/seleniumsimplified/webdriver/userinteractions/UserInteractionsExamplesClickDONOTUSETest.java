@@ -13,6 +13,7 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -23,8 +24,7 @@ public class UserInteractionsExamplesClickDONOTUSETest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
     }
 
     @Test
@@ -47,7 +47,7 @@ public class UserInteractionsExamplesClickDONOTUSETest {
 
         clickSubmitButton();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         assertEquals("Expected only 1 match", 1,
                 driver.findElements(By.cssSelector("[id^='_valuemultipleselect']")).size());
@@ -105,7 +105,7 @@ public class UserInteractionsExamplesClickDONOTUSETest {
 
         clickSubmitButton();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         List<WebElement> selectedItems = driver.findElements(By.cssSelector("[id^='_valuemultipleselect']"));
         try{

@@ -17,8 +17,8 @@ public class FindByCSSSelectorBasicExercisesTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/find_by_playground.php");
+        driver = Driver.get("https://testpages.herokuapp.com/" +
+                "find_by_playground.php");
     }
 
     @Test

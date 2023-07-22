@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
 import java.net.URISyntaxException;
+import java.time.Duration;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,7 +21,7 @@ public class ManipulateExercisesSubmitFileTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                             "basic_html_form.html");
     }
 
@@ -38,7 +39,7 @@ public class ManipulateExercisesSubmitFileTest {
 
         clickSubmitButton();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         assertEquals("testTextFile.txt",
                      driver.findElement(By.id("_valuefilename")).getText());

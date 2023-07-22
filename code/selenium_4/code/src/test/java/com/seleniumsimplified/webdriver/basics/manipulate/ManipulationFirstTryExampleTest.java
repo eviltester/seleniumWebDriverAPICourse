@@ -20,7 +20,7 @@ public class ManipulationFirstTryExampleTest {
     @Ignore("without waits this will only work in debug mode")
     public void manipulation1stTry(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                 "basic_ajax.html");
 
         // select Server

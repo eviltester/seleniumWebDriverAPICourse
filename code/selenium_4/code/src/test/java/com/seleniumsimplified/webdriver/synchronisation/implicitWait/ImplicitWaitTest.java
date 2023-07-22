@@ -11,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -32,8 +33,7 @@ public class ImplicitWaitTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 
@@ -59,7 +59,7 @@ public class ImplicitWaitTest {
 
         fillFormAndSubmit();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         // wait for 0 seconds implicitly
         driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
@@ -107,7 +107,7 @@ public class ImplicitWaitTest {
 
         fillFormAndSubmit();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         // wait for 10 seconds implicitly
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);

@@ -26,13 +26,18 @@ public class IFrameExercisesTest {
 
     @BeforeClass
     public static void createDriver(){
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
     }
 
     @Before
     public void loadPage(){
         // because we are switching between iframes I will 'get' the page prior to every test
-        driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
+        driver = Driver.get("https://testpages.herokuapp.com/styled/frames/iframes-test.html");
+    }
+
+    @Test
+    public void switchToX(){
+        Assert.assertTrue("write the tests and assertions below", true);
     }
 
     // switch to the second iframe by number (1) and assert on

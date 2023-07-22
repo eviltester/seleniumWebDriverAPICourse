@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -21,14 +22,13 @@ public class CustomExpectedConditionsExampleTest {
 
             WebDriver driver;
 
-            driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                    "basic_ajax.html");
+            driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
             // select Server
             WebElement categorySelect = driver.findElement(By.id("combo1"));
             categorySelect.findElement(By.cssSelector("option[value='3']")).click();
 
-            new WebDriverWait(driver,10).until(
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                     new SelectContainsText(By.id("combo2"),"Java")
             );
 
@@ -42,7 +42,7 @@ public class CustomExpectedConditionsExampleTest {
 
             // don't have to synchronise with other browsers but do with GeckoDriver
             //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-            WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+            WebElement languageWeUsed = new WebDriverWait(driver,Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
             assertEquals("Expected Java code", "23",languageWeUsed.getText());
     }
 

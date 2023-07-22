@@ -10,7 +10,6 @@ import org.openqa.selenium.*;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-@Ignore
 public class GetTitleReplacementExerciseTest {
 
     static WebDriver driver;
@@ -39,8 +38,7 @@ public class GetTitleReplacementExerciseTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/find_by_playground.php");
+        driver = Driver.get("https://testpages.herokuapp.com/find_by_playground.php");
     }
 
     @Test

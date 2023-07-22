@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -22,7 +23,7 @@ public class JavascriptAsyncExecutorTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://www.compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
     }
 
     @Before
@@ -38,20 +39,20 @@ public class JavascriptAsyncExecutorTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                 "basic_ajax.html");
+
 
         JavascriptExecutor js =(JavascriptExecutor)driver;
 
         driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
 
         js.executeScript("window.webdrivercallback = function(){};" +
-                //extend the jQuery hide method to call our callback when it hides the gif
-                "var _oldhide = $.fn.hide;" +
-                "$.fn.hide = function(speed, callback) {" +
-                "    var retThis = _oldhide.apply(this,arguments);" +
+                //extend the hide method to call our callback when it hides the gif
+                "var _oldhide = hideSpinner;" +
+                "hideSpinner = function() {" +
+                "    _oldhide();" +
                 "    window.webdrivercallback.apply();" +
-                "    return retThis;" +
                 "};"
         );
 
@@ -72,7 +73,7 @@ public class JavascriptAsyncExecutorTest {
 
         // don't have to synchronise with other browsers but do with GeckoDriver
         //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-        WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+        WebElement languageWeUsed = new WebDriverWait(driver, Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
         assertEquals("Expected Java code", "23",languageWeUsed.getText());
 
 

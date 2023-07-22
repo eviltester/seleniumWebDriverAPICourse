@@ -27,8 +27,7 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                            "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         // Fluent wait constructor has changed for version 3.12
         // we used to use
@@ -56,15 +55,14 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         // Fluent wait constructor has changed for version 3.12
         // we used to use
 //        WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver,10).
 //                                 pollingEvery(100, TimeUnit.MILLISECONDS);
 
-        WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver,10).
+        WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver,Duration.ofSeconds(10)).
                 pollingEvery(Duration.ofMillis(100));
 
 

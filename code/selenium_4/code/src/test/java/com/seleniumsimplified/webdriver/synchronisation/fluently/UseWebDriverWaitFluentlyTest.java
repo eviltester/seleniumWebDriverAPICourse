@@ -18,7 +18,7 @@ public class UseWebDriverWaitFluentlyTest {
     @Test
     public void wait5Seconds(){
 
-        WebDriver driver = Driver.get("http://compendiumdev.co.uk");
+        WebDriver driver = Driver.get("https://testpages.herokuapp.com/");
 
         long currTime = System.currentTimeMillis();
 
@@ -32,7 +32,7 @@ public class UseWebDriverWaitFluentlyTest {
 //                    withTimeout(5, TimeUnit.SECONDS).
 
             /* this will ignore the thrown exception in the apply */
-            new WebDriverWait(driver, 1).
+            new WebDriverWait(driver, Duration.ofSeconds(1)).
                     pollingEvery(Duration.ofMillis(100)).
                     withTimeout(Duration.ofSeconds(5)).
                     ignoring(IllegalStateException.class).

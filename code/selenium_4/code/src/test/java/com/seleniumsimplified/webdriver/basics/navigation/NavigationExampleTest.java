@@ -22,7 +22,7 @@ public class NavigationExampleTest {
     @Test
     public void navigateWithNavigateTo(){
         driver.navigate().to(
-                "http://www.compendiumdev.co.uk/selenium/search.php");
+                "https://testpages.herokuapp.com/search.php");
         assertTrue(driver.getTitle().
                 startsWith("Selenium Simplified Search Engine"));
     }

@@ -7,13 +7,15 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ManipulateExercisesSubmitFormTest {
 
     private static WebDriver driver;
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                             "basic_html_form.html");
     }
 
@@ -31,7 +33,7 @@ public class ManipulateExercisesSubmitFormTest {
         //when moving the test to continuous integration this check showed up as intermittent
         //assertEquals("Expected the form to be processed",
         //                "Processed Form Details",driver.getTitle());
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
     }
 
     @Test
@@ -47,7 +49,7 @@ public class ManipulateExercisesSubmitFormTest {
         //when moving the test to continuous integration this check showed up as intermittent
         //assertEquals("Expected the form to be processed",
         //                "Processed Form Details",driver.getTitle());
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
     }
 
     @Test
@@ -62,7 +64,7 @@ public class ManipulateExercisesSubmitFormTest {
         //when moving the test to continuous integration this check showed up as intermittent
         //assertEquals("Expected the form to be processed",
         //                "Processed Form Details",driver.getTitle());
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
     }
 
     @Test
@@ -76,7 +78,7 @@ public class ManipulateExercisesSubmitFormTest {
         //when moving the test to continuous integration this check showed up as intermittent
         //assertEquals("Expected the form to be processed",
         //                "Processed Form Details",driver.getTitle());
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
     }
 
@@ -98,7 +100,7 @@ public class ManipulateExercisesSubmitFormTest {
             // if enter does not work then try SPACE
             //submitButton.sendKeys(Keys.SPACE);
 
-            new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+            new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
     }
 

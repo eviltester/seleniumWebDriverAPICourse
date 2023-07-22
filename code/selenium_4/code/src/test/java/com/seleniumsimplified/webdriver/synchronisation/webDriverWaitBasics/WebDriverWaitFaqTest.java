@@ -7,6 +7,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.fail;
 
 public class WebDriverWaitFaqTest {
@@ -16,11 +18,10 @@ public class WebDriverWaitFaqTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         try{
-            new WebDriverWait(driver,10).until(
+            new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.titleIs("HTML Form Elementals"));
 
             fail("Expected a org.openqa.selenium.TimeoutException");

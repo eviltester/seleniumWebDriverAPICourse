@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class ProcessedFormPage {
     private WebDriver driver;
 
@@ -14,7 +16,7 @@ public class ProcessedFormPage {
     }
 
     public void waitUntilPageIsLoaded() {
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
     }
 
     public String getValueFor(String valueID) {

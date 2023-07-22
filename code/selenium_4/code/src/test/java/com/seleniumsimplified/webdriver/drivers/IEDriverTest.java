@@ -30,7 +30,7 @@ public class IEDriverTest {
 
         WebDriver iedriver = new InternetExplorerDriver();
 
-        iedriver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        iedriver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(iedriver.getTitle(), is("HTML Form Elements"));
 
@@ -55,7 +55,7 @@ public class IEDriverTest {
 
             WebDriver iedriver = new InternetExplorerDriver(new InternetExplorerOptions().setProxy(proxy));
 
-            iedriver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            iedriver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
             assertThat(iedriver.getTitle(), is("HTML Form Elements"));
 

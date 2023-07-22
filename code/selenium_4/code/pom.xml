@@ -2,18 +2,22 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.seleniumsimplified.webdriver</groupId>
-    <artifactId>webdriverbasics</artifactId>
-    <version>3.5.3</version>
+    <groupId>com.eviltester.webdriver</groupId>
+    <artifactId>webdriverbasics4</artifactId>
+    <version>4.0.0</version>
     <packaging>jar</packaging>
 
-    <name>webDriverbasics</name>
-    <url>http://seleniumsimplified.com</url>
+    <name>webDriverbasics4</name>
+    <url>https://eviltester.com</url>
 
 
     <!-- if you encounter issues using Firefox then please read the Firefox47.pdf in \docs -->
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <!-- configure the compiler via properties rather than plugin -->
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+
         <!-- <webdriver.version>2.53.1</webdriver.version> -->
         <!-- AllBrowserTests: webdriver 3.3.1 Chromedriver 2.32 and Chrome 61.0.3163.100 - clean run -->
         <!-- AllBrowserTests: webdriver 3.5.3 Chromedriver 2.32 and Chrome 61.0.3163.100 - clean run -->
@@ -74,13 +78,13 @@ We use
         </dependency>
 
          -->
-        <webdriver.version>3.141.59</webdriver.version>
+        <webdriver.version>4.10.0</webdriver.version>
 
         <!--
          Selenium 4 currently doesn't support Actions and the Select support class doesn't
          compile for me so can't really test course code against this yet
          -->
-        <!--<webdriver.version>4.0.0-alpha-3</webdriver.version>-->
+
         <htmlunitdriver.version>2.36.0</htmlunitdriver.version>
 
         <junit.version>4.13</junit.version>
@@ -110,13 +114,12 @@ We use
         </dependency>
 
 
-        <!--
+
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>${junit.version}</version>
         </dependency>
-        -->
 
         <!-- JUnit 5 -->
         <!--
@@ -140,64 +143,28 @@ We use
         </dependency>
         -->
 
-        <!-- bring in the full selenium deploy
-     we could be more selective and bring
-     only what we need -->
+        <!-- bring in the full selenium deploy -->
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>${webdriver.version}</version>
         </dependency>
-
-<!--
-
-        <dependency>
-            <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>selenium-java</artifactId>
-            <version>${webdriver.version}</version>
-        </dependency>
--->
-
-
 
 
         <!-- from WebDriver 2.53.0 HTMLUnit is no longer distributed with Selenium WebDriver -->
         <!-- https://github.com/SeleniumHQ/htmlunit-driver -->
         <!-- need to bring in the htmlunit driver on its own -->
         <!-- https://github.com/SeleniumHQ/selenium/blob/master/java/CHANGELOG -->
+        <!-- htmlunit driver is maintaining version numbering compatibility with webdriver -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>htmlunit-driver</artifactId>
-            <version>${htmlunitdriver.version}</version>
+            <version>${webdriver.version}</version>
         </dependency>
 
     </dependencies>
 
-    <!-- I have added the build section to support importing into
-	     IntelliJ automatically without throwing errors about wrong Java
-		 Version. This basically says the source requires at least Java 1.8
-		 and use a compiler that outputs Java 1.8
-
-         Selenium WebDriver 3 will require Java 1.8 so I have increased the
-         numbers in preparation, which means you need to install a JDK 1.8 (minimum)
-
-		 You can use 1.7 or 1.6 for Selenium WebDriver 2.53.1 and below
-    -->
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.8</source>
-					<target>1.8</target>
-                    <encoding>${project.build.sourceEncoding}</encoding>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 
     <!-- examples of how to use the profiles from the command line -->
     <!-- mvn test

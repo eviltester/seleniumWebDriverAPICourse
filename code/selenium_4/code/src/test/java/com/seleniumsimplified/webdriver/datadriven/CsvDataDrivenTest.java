@@ -17,6 +17,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
@@ -28,7 +29,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(Parameterized.class)
 public class CsvDataDrivenTest {
 
-    public static String url = "http://www.compendiumdev.co.uk/selenium/calculate.php";
+    public static String url = "https://testpages.herokuapp.com/calculate.php";
     public static WebDriver driver;
 
     private String number1;
@@ -136,7 +137,7 @@ public class CsvDataDrivenTest {
             calculateButton.click();
         }
 
-        WebElement answer = new WebDriverWait(driver,10).
+        WebElement answer = new WebDriverWait(driver, Duration.ofSeconds(10)).
                                     until(ExpectedConditions.
                                             visibilityOfElementLocated(
                                                     By.id("answer")));

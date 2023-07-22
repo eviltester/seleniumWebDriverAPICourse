@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
@@ -23,8 +25,7 @@ public class SynchronisationWithWebDriverWaitTest {
         try{
             WebDriver driver;
 
-            driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                                "basic_ajax.html");
+            driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
             // select Server
             WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -53,7 +54,7 @@ public class SynchronisationWithWebDriverWaitTest {
 
         // wait until the ajax symbol has gone
         // because then the drop down has populated
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.invisibilityOfElementLocated(
                         By.id("ajaxBusy")));
 
@@ -68,7 +69,7 @@ public class SynchronisationWithWebDriverWaitTest {
         startBrowserAndSelectServer();
 
         // wait until the option I want to click is present
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(
                         By.cssSelector("option[value='23']")));
 
@@ -83,7 +84,7 @@ public class SynchronisationWithWebDriverWaitTest {
         startBrowserAndSelectServer();
 
         // wait until the option I want to click is visible
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(
                 ExpectedConditions.visibilityOfElementLocated(
                         By.cssSelector("option[value='23']")));
 
@@ -98,7 +99,7 @@ public class SynchronisationWithWebDriverWaitTest {
         startBrowserAndSelectServer();
 
         // wait until the option I want to click is clickable
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(
                 ExpectedConditions.elementToBeClickable(
                         By.cssSelector("option[value='23']")));
 
@@ -108,8 +109,7 @@ public class SynchronisationWithWebDriverWaitTest {
     }
 
     private void startBrowserAndSelectServer() {
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -125,11 +125,11 @@ public class SynchronisationWithWebDriverWaitTest {
         WebElement codeInIt = driver.findElement(By.name("submitbutton"));
         codeInIt.click();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         // don't have to synchronise with other browsers but do with GeckoDriver
         //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-        WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+        WebElement languageWeUsed = new WebDriverWait(driver,Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
         assertEquals("Expected Java code", "23",languageWeUsed.getText());
     }
 

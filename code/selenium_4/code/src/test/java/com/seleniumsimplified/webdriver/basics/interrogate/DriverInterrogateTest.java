@@ -15,11 +15,11 @@ public class DriverInterrogateTest {
         WebDriver driver;
 
         final String theTestPageURL =
-                "//www.compendiumdev.co.uk/selenium/basic_web_page.html";
+                "/basic_web_page.html";
 
         driver = Driver.get();
 
-        driver.navigate().to("http:" + theTestPageURL);
+        driver.navigate().to("https://testpages.herokuapp.com" + theTestPageURL);
 
         // in the videos you might see these the wrong way round
         // always use expected, actual

@@ -13,6 +13,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.*;
 
 public class UserInteractionsExercisesTest {
@@ -21,7 +23,7 @@ public class UserInteractionsExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                 "gui_user_interactions.html");
     }
 
@@ -34,7 +36,7 @@ public class UserInteractionsExercisesTest {
         // intermittent, but this is a good example that sometimes
         // extra sync is required, but doesn't impact the speed or readability
         // of the code
-        WebDriverWait wait = new WebDriverWait(driver,10);
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("canvas")));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("keyeventslist")));
 

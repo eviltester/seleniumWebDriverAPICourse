@@ -7,6 +7,8 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class BasicAjaxPageObject {
 
     WebDriver driver;
@@ -46,7 +48,7 @@ public class BasicAjaxPageObject {
     }
 
     public void get() {
-        driver.get("http://compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver.get("https://testpages.herokuapp.com/basic_ajax.html");
     }
 
     public void selectCategory(Category category) {
@@ -55,7 +57,7 @@ public class BasicAjaxPageObject {
 
         // wait until the option I want to click is present
         // we could also wait for the contents of the drop down to fill
-        /*new WebDriverWait(driver,10).until(
+        /*new WebDriverWait(driver,Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(
                         By.cssSelector("option[value='23']")));*/
 
@@ -64,7 +66,7 @@ public class BasicAjaxPageObject {
         // wait until the ajax symbol has gone
         // because then the drop down has populated
 
-        new WebDriverWait(driver,10).until(ajaxActionIsComplete());
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ajaxActionIsComplete());
     }
 
     public ExpectedCondition<Boolean> ajaxActionIsComplete() {
@@ -76,7 +78,7 @@ public class BasicAjaxPageObject {
 
         // wait until the option I want to click is present
         /* added this as historical code just in case
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(
                 ExpectedConditions.presenceOfElementLocated(
                         By.cssSelector("option[value='23']")));
         */

@@ -22,7 +22,7 @@ public class CookiesExercisesTest {
     @Before
     public void setup(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                         "search.php");
 
         //"http://compendiumdev.co.uk/selenium/"
@@ -164,7 +164,7 @@ public class CookiesExercisesTest {
 
         driver.manage().deleteCookieNamed("seleniumSimplifiedSearchNumVisits");
 
-        String path = "/selenium";
+        String path = "/";
 
         if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
             path = path + "/"; // need to add a trailing / for firefox only

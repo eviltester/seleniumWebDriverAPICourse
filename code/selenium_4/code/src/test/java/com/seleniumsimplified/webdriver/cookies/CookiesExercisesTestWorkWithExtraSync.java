@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -30,7 +31,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
     @Before
     public void setup(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                         "search.php");
 
         //seleniumSimplifiedSearchLastVisit
@@ -88,12 +89,12 @@ public class CookiesExercisesTestWorkWithExtraSync {
         // extra sync was needed otherwise Marionette would not refresh the DOM correctly
         // needed to do this otherwise Opera races ahead and throws
         // null pointer exceptions on the cookies
-        new WebDriverWait(driver,10).until(ExpectedConditions.presenceOfElementLocated(By.id("resultList")));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.id("resultList")));
         waitForCookieNamed(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS);
     }
 
     private Cookie waitForCookieNamed(String cookieName) {
-        return new WebDriverWait(driver,10).until(cookieExistsNamed(cookieName));
+        return new WebDriverWait(driver,Duration.ofSeconds(10)).until(cookieExistsNamed(cookieName));
     }
 
 
@@ -109,7 +110,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
 
 
     private Cookie waitForCookieWithValue(String cookieName, String cookieValue) {
-        return new WebDriverWait(driver,10).until(cookieWithValueExists(cookieName, cookieValue));
+        return new WebDriverWait(driver, Duration.ofSeconds(10)).until(cookieWithValueExists(cookieName, cookieValue));
     }
 
     private ExpectedCondition<Cookie> cookieWithValueExists(final String cookieName, final String cookieValue){
@@ -239,13 +240,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
 
         driver.manage().deleteCookieNamed(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS);
 
-        String path = "/selenium";
-
-        // This will not happen if we are running on firefox on grid
-        // So the test might fail
-        if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
-            path = path + "/"; // need to add a trailing / for firefox only
-        }
+        String path = "/";
 
         driver.manage().addCookie(
                 new Cookie.Builder(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS,

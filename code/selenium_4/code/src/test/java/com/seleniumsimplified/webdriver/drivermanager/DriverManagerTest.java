@@ -30,7 +30,7 @@ public class DriverManagerTest {
 
     public void assertBrowserTestRuns(){
         driver = DriverManager.get();
-        driver.get("http://compendiumdev.co.uk/selenium/basic_web_page.html");
+        driver.get("https://testpages.herokuapp.com/basic_web_page.html");
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
     }
 

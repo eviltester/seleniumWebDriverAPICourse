@@ -18,8 +18,8 @@ public class ManipulateExampleTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/" +
+                "basic_html_form.html");
     }
 
     @Test

@@ -15,6 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.time.Duration;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -51,8 +52,7 @@ public class SaucelabsTest {
 
     @Test
     public void simpleInteraction(){
-       driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/basic_html_form.html");
+       driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));
@@ -68,8 +68,8 @@ public class SaucelabsTest {
 
     @Test
     public void loadTheGreenPage(){
-        driver.get("http://www.compendiumdev.co.uk/selenium/frames");
-        WebDriverWait wait = new WebDriverWait(driver,Driver.DEFAULT_TIMEOUT_SECONDS);
+        driver.get("https://testpages.herokuapp.com/frames/index.html");
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Driver.DEFAULT_TIMEOUT_SECONDS));
 
         assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));
 
@@ -90,8 +90,8 @@ public class SaucelabsTest {
 
     @Test
     public void workWithTheIFrame(){
-        driver.get("http://www.compendiumdev.co.uk/selenium/frames");
-        WebDriverWait wait = new WebDriverWait(driver,Driver.DEFAULT_TIMEOUT_SECONDS);
+        driver.get("https://testpages.herokuapp.com/frames/index.html");
+        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(Driver.DEFAULT_TIMEOUT_SECONDS));
 
         assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));
 

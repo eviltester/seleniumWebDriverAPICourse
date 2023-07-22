@@ -9,6 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
@@ -22,7 +23,7 @@ public class ManipulatetExampleMultiSelectTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                 "basic_html_form.html");
     }
 
@@ -49,7 +50,7 @@ public class ManipulatetExampleMultiSelectTest {
 
         clickSubmitButton();
 
-        new WebDriverWait(driver,10).until(ExpectedConditions.titleIs("Processed Form Details"));
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         assertEquals("ms1", driver.findElement(By.id("_valuemultipleselect0")).getText());
         assertEquals("ms2", driver.findElement(By.id("_valuemultipleselect1")).getText());

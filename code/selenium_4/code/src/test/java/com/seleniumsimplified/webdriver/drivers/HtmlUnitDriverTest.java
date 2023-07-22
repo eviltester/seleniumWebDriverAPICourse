@@ -25,9 +25,9 @@ public class HtmlUnitDriverTest {
         // changed to BrowserVersion.FIREFOX_24 from BrowserVersion.FIREFOX_3_6
         // when upgrading to WebDriver 2.42.2, if you are using a version below this
         // then change it back to FIREFOX_3_6
-        WebDriver htmlunit = new HtmlUnitDriver(BrowserVersion.FIREFOX_52);
+        WebDriver htmlunit = new HtmlUnitDriver(BrowserVersion.FIREFOX);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -39,7 +39,7 @@ public class HtmlUnitDriverTest {
 
         WebDriver htmlunit = new HtmlUnitDriver(true);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -51,12 +51,12 @@ public class HtmlUnitDriverTest {
 
         DesiredCapabilities capabilities = new DesiredCapabilities();
         // setting this to false does not impact firefox
-        capabilities.setJavascriptEnabled(true);
+//        capabilities.setJavascriptEnabled(true);
         capabilities.setBrowserName("htmlunit");
 
         WebDriver htmlunit = new HtmlUnitDriver(capabilities);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -92,11 +92,11 @@ public class HtmlUnitDriverTest {
 
              */
 
-            DesiredCapabilities capabilities = DesiredCapabilities.htmlUnit();
+            DesiredCapabilities capabilities = new DesiredCapabilities();
 
             // setting this to false does not impact firefox
-            capabilities.setJavascriptEnabled(true);
-
+//            capabilities.setJavascriptEnabled(true);
+//
             org.openqa.selenium.Proxy proxy = new org.openqa.selenium.Proxy();
             proxy.setHttpProxy(Driver.PROXY)
                     .setFtpProxy(Driver.PROXY)
@@ -105,7 +105,7 @@ public class HtmlUnitDriverTest {
 
             WebDriver htmlunit = new HtmlUnitDriver(capabilities);
 
-            htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            htmlunit.get("https://testpages.herokuapp.com/basic_html_form.html");
 
             assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 

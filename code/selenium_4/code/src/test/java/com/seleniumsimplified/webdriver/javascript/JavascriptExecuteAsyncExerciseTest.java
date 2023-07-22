@@ -22,7 +22,7 @@ public class JavascriptExecuteAsyncExerciseTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://www.compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
     }
 
     @Before
@@ -68,7 +68,7 @@ public class JavascriptExecuteAsyncExerciseTest {
         System.out.println((String)response);
 
         assertThat((String) response,
-                containsString("{optionValue:10, optionDisplay: 'C++'}"));
+                containsString("{\"optionValue\":10, \"optionDisplay\": \"C++\"}"));
 
     }
 

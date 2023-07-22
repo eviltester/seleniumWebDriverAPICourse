@@ -42,8 +42,7 @@ public class GridTest {
 
     @Test
     public void simpleInteraction(){
-       driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/basic_html_form.html");
+       driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));

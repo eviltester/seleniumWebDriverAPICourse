@@ -9,6 +9,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
@@ -19,13 +21,13 @@ public class WebDriverWaitFunctionAndExpectedConditionsExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
     @Test
     public void returnAStringFromWebDriverWaitFunction(){
 
-        String theTime = new WebDriverWait(driver,10,100).
+        String theTime = new WebDriverWait(driver, Duration.ofSeconds(10),Duration.ofMillis(100)).
                 until(new Function<WebDriver, String>() {
                     @Override
                     public String apply(WebDriver driver) {
@@ -40,7 +42,7 @@ public class WebDriverWaitFunctionAndExpectedConditionsExampleTest {
     @Test
     public void returnAStringFromWebDriverWaitExpectedCondition(){
 
-        String theTime = new WebDriverWait(driver,10,100).
+        String theTime = new WebDriverWait(driver,Duration.ofSeconds(10),Duration.ofMillis(100)).
                 until(new ExpectedCondition<String>() {
                     @Override
                     public String apply(WebDriver driver) {
@@ -56,7 +58,7 @@ public class WebDriverWaitFunctionAndExpectedConditionsExampleTest {
     @Test
     public void returnAStringFromWebDriverWaitExpectedConditionAsMethod(){
 
-        String theTime = new WebDriverWait(driver,10,100).
+        String theTime = new WebDriverWait(driver,Duration.ofSeconds(10),Duration.ofMillis(100)).
                 until(timeHasChangedTo("01:01:04")
                 );
 

@@ -27,7 +27,7 @@ public class FluentWaitForWebElementExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
 
@@ -37,7 +37,7 @@ public class FluentWaitForWebElementExampleTest {
         driver.navigate().refresh();
 
         countdown = driver.findElement(By.id("javascript_countdown_time"));
-        new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(countdown));
+        new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(countdown));
     }
 
     /*

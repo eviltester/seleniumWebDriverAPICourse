@@ -1,9 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.frames;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
+import org.junit.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -26,13 +24,14 @@ public class FrameExercisesTest {
 
     @BeforeClass
     public static void createDriver(){
-        driver = new ChromeDriver();
+        // driver = new ChromeDriver();
     }
 
     @Before
     public void loadPage(){
         // because we are switching between frames I will 'get' the page prior to every test
-        driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
+        driver = Driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
+        //driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
     }
 
 
@@ -41,6 +40,10 @@ public class FrameExercisesTest {
     // switch to the right frame by WebElement and find and assert on something in the list e.g. "Right List Item 5"
     // switch to a frame, assert you are in the frame, and switch to the main page using `defaultContent()`
     // switch to a frame, assert you are in the frame, and switch to the main page using `parentFrame()`
+    @Test
+    public void switchToX(){
+        Assert.assertTrue("write the tests and assertions above", true);
+    }
 
     @AfterClass
     public static void closeDriver(){

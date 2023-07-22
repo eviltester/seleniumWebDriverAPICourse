@@ -1,19 +1,14 @@
 package com.seleniumsimplified.webdriver.manager;
 
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.UnsupportedCommandException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
-import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -188,40 +183,40 @@ public class Driver extends Thread{
             // see the \docs\firefox47.pdf for a discussion on why we have Firefox and FirefoxPortable etc.
             switch (useThisDriver) {
                 case FIREFOX:
-                    FirefoxProfile profile = new FirefoxProfile();
-
-                    // not available in Webdriver 3.12.0
-                    //profile.setEnableNativeEvents(true);
-
-                    /** Webdriver 3 **/
-                    /*
-                        To use legacy Firefox driver we can set capability for Marionette to be false
-                        and it will use the legacy firefox driver
-
-                        FirefoxDriver.MARIONETTE == "marionette"
-                     */
-                    //DesiredCapabilities legacyCapabilities = DesiredCapabilities.firefox();
-                    //legacyCapabilities.setCapability("marionette", false);
-
-                    // capabilities removed in Selenium 4
-
-                    aDriver = new FirefoxDriver();//profile);
-
-                    /*
-                     NOTE: 20160729 this property doesn't seem to be honoured in the code yet
-                     so use the capability above.
-
-                     or I can run the test with a property
-
-                    -Dwebdriver.firefox.marionette=false
-
-                      I could set that in code with
-                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "false");
-                     */
-
-                    //
-
-                    currentDriver = BrowserName.FIREFOX;
+//                    FirefoxProfile profile = new FirefoxProfile();
+//
+//                    // not available in Webdriver 3.12.0
+//                    //profile.setEnableNativeEvents(true);
+//
+//                    /** Webdriver 3 **/
+//                    /*
+//                        To use legacy Firefox driver we can set capability for Marionette to be false
+//                        and it will use the legacy firefox driver
+//
+//                        FirefoxDriver.MARIONETTE == "marionette"
+//                     */
+//                    //DesiredCapabilities legacyCapabilities = DesiredCapabilities.firefox();
+//                    //legacyCapabilities.setCapability("marionette", false);
+//
+//                    // capabilities removed in Selenium 4
+//
+//                    aDriver = new FirefoxDriver();//profile);
+//
+//                    /*
+//                     NOTE: 20160729 this property doesn't seem to be honoured in the code yet
+//                     so use the capability above.
+//
+//                     or I can run the test with a property
+//
+//                    -Dwebdriver.firefox.marionette=false
+//
+//                      I could set that in code with
+//                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "false");
+//                     */
+//
+//                    //
+//
+//                    currentDriver = BrowserName.FIREFOX;
                     break;
 
                 case HTMLUNIT:
@@ -233,34 +228,34 @@ public class Driver extends Thread{
 
                 case IE:
 
-                    setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_32/IEDriverServer.exe", "C://webdrivers/iedriver_32/IEDriverServer.exe");
-                    //setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_64/IEDriverServer.exe", "C://webdrivers/iedriver_64/IEDriverServer.exe");
-
-                    aDriver = new InternetExplorerDriver();
-                    currentDriver = BrowserName.IE;
+//                    setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_32/IEDriverServer.exe", "C://webdrivers/iedriver_32/IEDriverServer.exe");
+//                    //setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_64/IEDriverServer.exe", "C://webdrivers/iedriver_64/IEDriverServer.exe");
+//
+//                    aDriver = new InternetExplorerDriver();
+//                    currentDriver = BrowserName.IE;
                     break;
 
                 case EDGE:
 
-                    setDriverPropertyIfNecessary("webdriver.edge.driver", "/../tools/edgedriver/MicrosoftWebDriver.exe", "C://webdrivers/edgedriver/MicrosoftWebDriver.exe");
-
-                    aDriver = new EdgeDriver();
-                    currentDriver = BrowserName.EDGE;
+//                    setDriverPropertyIfNecessary("webdriver.edge.driver", "/../tools/edgedriver/MicrosoftWebDriver.exe", "C://webdrivers/edgedriver/MicrosoftWebDriver.exe");
+//
+//                    aDriver = new EdgeDriver();
+//                    currentDriver = BrowserName.EDGE;
                     break;
 
                 case GOOGLECHROME:
 
-                    setDriverPropertyIfNecessary("webdriver.chrome.driver","/../tools/chromedriver/chromedriver.exe","C://webdrivers/chromedriver/chromedriver.exe");
+//                    setDriverPropertyIfNecessary("webdriver.chrome.driver","/../tools/chromedriver/chromedriver.exe","C://webdrivers/chromedriver/chromedriver.exe");
 
                     ChromeOptions options = new ChromeOptions();
-                    options.addArguments("disable-plugins");
-                    options.addArguments("disable-extensions");
+//                    options.addArguments("disable-plugins");
+//                    options.addArguments("disable-extensions");
 
 
                     // with Chrome v35 it now reports an error on --ignore-certificate-errors
                     // so call with args "test-type"
                     // https://code.google.com/p/chromedriver/issues/detail?id=799
-                    options.addArguments("test-type");
+//                    options.addArguments("test-type");
 
                     //DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
 
@@ -361,8 +356,8 @@ public class Driver extends Thread{
                     break;
 
                 case SAFARI:
-                    aDriver = new SafariDriver();
-                    currentDriver = BrowserName.SAFARI;
+//                    aDriver = new SafariDriver();
+//                    currentDriver = BrowserName.SAFARI;
                     break;
             }
 

@@ -19,7 +19,7 @@ public class FundamentalWhatHappensIfTest {
     public void whatHappensIfIQuitThenClose(){
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("http://www.compendiumdev.co.uk/selenium");
+        driver.get("https://testpages.herokuapp.com/");
         assertTrue(driver.getTitle().startsWith("Selenium Simplified"));
 
         driver.quit();
@@ -40,7 +40,7 @@ public class FundamentalWhatHappensIfTest {
     public void whatHappensIfICloseWithNothingOpen(){
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("http://www.compendiumdev.co.uk/selenium");
+        driver.get("https://testpages.herokuapp.com/");
         assertTrue(driver.getTitle().startsWith("Selenium Simplified"));
 
         driver.close();

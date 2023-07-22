@@ -13,6 +13,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Arrays;
 import java.util.Collection;
 
@@ -23,7 +24,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(Parameterized.class)
 public class BasicDataDrivenTest {
 
-    public static String url = "http://www.compendiumdev.co.uk/selenium/calculate.php";
+    public static String url = "https://testpages.herokuapp.com/calculate.php";
     public static WebDriver driver;
 
     private String number1;
@@ -81,7 +82,7 @@ public class BasicDataDrivenTest {
             calculateButton.click();
         }
 
-        WebElement answer = new WebDriverWait(driver,10).
+        WebElement answer = new WebDriverWait(driver, Duration.ofSeconds(10)).
                                     until(ExpectedConditions.
                                             visibilityOfElementLocated(
                                                     By.id("answer")));

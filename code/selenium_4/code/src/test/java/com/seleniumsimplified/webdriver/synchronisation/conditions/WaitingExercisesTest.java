@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
@@ -18,15 +20,14 @@ public class WaitingExercisesTest {
     @Test
     public void canReturnAWebElementInsteadOfABooleanUsingAnonymousClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
         categorySelect.findElement(By.cssSelector("option[value='3']")).click();
 
         // Wait for Java to be available to select
-        WebElement elly = new WebDriverWait(driver,10).until(
+        WebElement elly = new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 new ExpectedCondition<WebElement>() {
                     @Override
                     public WebElement apply(WebDriver webDriver) {
@@ -53,7 +54,7 @@ public class WaitingExercisesTest {
 
         // don't have to synchronise with other browsers but do with GeckoDriver
         //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-        WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+        WebElement languageWeUsed = new WebDriverWait(driver,Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
         assertEquals("Expected Java code", "23",languageWeUsed.getText());
     }
 
@@ -61,13 +62,12 @@ public class WaitingExercisesTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
         assertEquals("Basic Web Page Title",
-                new WebDriverWait(driver,8).until(
+                new WebDriverWait(driver,Duration.ofSeconds(8)).until(
                         new TitleDoesNotContain("Redirects")));
     }
 
@@ -98,9 +98,8 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
-        wait = new WebDriverWait(driver,8);
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
@@ -118,9 +117,8 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
-        wait = new WebDriverWait(driver,8);
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 
         driver.findElement((By.id("delaygotobasic"))).click();
 

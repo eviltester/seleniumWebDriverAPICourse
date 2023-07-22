@@ -19,8 +19,8 @@ public class WebElementInterrogationTest {
 
         final WebDriver driver;
         final String theTestPageURL =
-                "http://www.compendiumdev.co.uk" +
-                "/selenium/basic_web_page.html";
+                "https://testpages.herokuapp.com/" +
+                "basic_web_page.html";
 
         //driver = new FirefoxDriver();
         driver = Driver.get();

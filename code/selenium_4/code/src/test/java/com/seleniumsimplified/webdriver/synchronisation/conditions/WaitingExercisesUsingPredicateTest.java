@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.function.Function;
 
 import static org.junit.Assert.assertEquals;
@@ -44,12 +45,11 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        new WebDriverWait(driver,8).until( new TitleDoesNotContain("Redirects"));
+        new WebDriverWait(driver, Duration.ofSeconds(8)).until( new TitleDoesNotContain("Redirects"));
 
         assertEquals("Basic Web Page Title", driver.getTitle());
     }
@@ -74,12 +74,11 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingMethod(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        new WebDriverWait(driver,8).until(titleDoesNotContain("Redirects"));
+        new WebDriverWait(driver,Duration.ofSeconds(8)).until(titleDoesNotContain("Redirects"));
 
         assertEquals("Basic Web Page Title", driver.getTitle());
     }

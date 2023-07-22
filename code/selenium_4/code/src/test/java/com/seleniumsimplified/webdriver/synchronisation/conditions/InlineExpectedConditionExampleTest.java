@@ -8,6 +8,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 import static org.junit.Assert.assertEquals;
 import static org.openqa.selenium.support.ui.ExpectedConditions.elementToBeClickable;
 
@@ -19,15 +21,14 @@ public class InlineExpectedConditionExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
         categorySelect.findElement(By.cssSelector("option[value='3']")).click();
 
         // use an anonymous class directly
-        new WebDriverWait(driver,10).until(
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 new ExpectedCondition<Boolean>() {
                     @Override
                     public Boolean apply(WebDriver webDriver) {
@@ -48,7 +49,7 @@ public class InlineExpectedConditionExampleTest {
 
         // don't have to synchronise with other browsers but do with GeckoDriver
         //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-        WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+        WebElement languageWeUsed = new WebDriverWait(driver,Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
         assertEquals("Expected Java code", "23",languageWeUsed.getText());
 
     }
@@ -59,14 +60,13 @@ public class InlineExpectedConditionExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
         categorySelect.findElement(By.cssSelector("option[value='3']")).click();
 
-        WebElement javaOption = new WebDriverWait(driver,10).until(optionWithValueDisplayed("23"));
+        WebElement javaOption = new WebDriverWait(driver,Duration.ofSeconds(10)).until(optionWithValueDisplayed("23"));
 
         javaOption.click();
 
@@ -76,7 +76,7 @@ public class InlineExpectedConditionExampleTest {
 
         // don't have to synchronise with other browsers but do with GeckoDriver
         //WebElement languageWeUsed = driver.findElement(By.id("_valuelanguage_id"));
-        WebElement languageWeUsed = new WebDriverWait(driver,10).until(elementToBeClickable( By.id("_valuelanguage_id")));
+        WebElement languageWeUsed = new WebDriverWait(driver,Duration.ofSeconds(10)).until(elementToBeClickable( By.id("_valuelanguage_id")));
         assertEquals("Expected Java code", "23",languageWeUsed.getText());
 
     }
