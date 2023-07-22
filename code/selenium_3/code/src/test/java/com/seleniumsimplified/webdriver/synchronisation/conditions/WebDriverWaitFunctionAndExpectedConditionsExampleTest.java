@@ -19,7 +19,7 @@ public class WebDriverWaitFunctionAndExpectedConditionsExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
     @Test

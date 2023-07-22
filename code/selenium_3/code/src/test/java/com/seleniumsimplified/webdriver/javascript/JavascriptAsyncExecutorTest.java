@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.javascript;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -22,7 +23,7 @@ public class JavascriptAsyncExecutorTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://www.compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     @Before
@@ -38,20 +39,19 @@ public class JavascriptAsyncExecutorTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
+
 
         JavascriptExecutor js =(JavascriptExecutor)driver;
 
         driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
 
         js.executeScript("window.webdrivercallback = function(){};" +
-                //extend the jQuery hide method to call our callback when it hides the gif
-                "var _oldhide = $.fn.hide;" +
-                "$.fn.hide = function(speed, callback) {" +
-                "    var retThis = _oldhide.apply(this,arguments);" +
+                //extend the hide method to call our callback when it hides the gif
+                "var _oldhide = hideSpinner;" +
+                "hideSpinner = function() {" +
+                "    _oldhide();" +
                 "    window.webdrivercallback.apply();" +
-                "    return retThis;" +
                 "};"
         );
 

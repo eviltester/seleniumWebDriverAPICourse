@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.Proxy;
@@ -44,7 +45,7 @@ public class ChromeDriverTest {
 
         WebDriver chrome = new ChromeDriver();
 
-        chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        chrome.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(chrome.getTitle(), is("HTML Form Elements"));
 
@@ -73,7 +74,7 @@ public class ChromeDriverTest {
 
         WebDriver chrome = new ChromeDriver(options);
 
-        chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        chrome.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(chrome.getTitle(), is("HTML Form Elements"));
 
@@ -99,7 +100,7 @@ public class ChromeDriverTest {
 
             WebDriver chrome = new ChromeDriver(options);
 
-            chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            chrome.get(SiteUrls.basicHtmlFormPageUrl());
 
             assertThat(chrome.getTitle(), is("HTML Form Elements"));
 

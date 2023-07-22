@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.javascript;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -19,7 +20,7 @@ public class JavaScriptExecutorTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/canvas_basic.html");
+        driver = Driver.get(SiteUrls.basicCanvasPageUrl());
     }
 
     @Before

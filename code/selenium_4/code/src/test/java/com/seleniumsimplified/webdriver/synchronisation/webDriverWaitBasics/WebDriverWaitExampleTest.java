@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -17,7 +18,7 @@ public class WebDriverWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(
                 ExpectedConditions.titleIs("HTML Form Elements"));
@@ -30,7 +31,7 @@ public class WebDriverWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         new WebDriverWait(driver,Duration.ofSeconds(10),Duration.ofMillis(50)).until(
                 ExpectedConditions.titleIs("HTML Form Elements"));

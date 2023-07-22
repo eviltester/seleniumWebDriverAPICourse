@@ -1,13 +1,14 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.windows;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class WindowsExerciseAnswersTest {
 
-    String pageUrl = "https://testpages.herokuapp.com/styled/windows-test.html";
+    String pageUrl = SiteUrls.windowLinksPageUrl();
     WebDriver driver;
 
     @BeforeClass

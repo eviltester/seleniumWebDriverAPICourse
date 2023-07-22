@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.remote;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -46,8 +47,7 @@ public class SaucelabsTest {
 
     @Test
     public void simpleInteraction(){
-       driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/basic_html_form.html");
+       driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));
@@ -63,8 +63,8 @@ public class SaucelabsTest {
 
     @Test
     public void loadTheGreenPage(){
-        driver.get("http://www.compendiumdev.co.uk/selenium/frames");
-        WebDriverWait wait = new WebDriverWait(driver,Driver.DEFAULT_TIMEOUT_SECONDS);
+        driver.get(SiteUrls.complexIframesPageUrl());
+        WebDriverWait wait = new WebDriverWait(driver, Driver.DEFAULT_TIMEOUT_SECONDS);
 
         assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));
 
@@ -85,7 +85,7 @@ public class SaucelabsTest {
 
     @Test
     public void workWithTheIFrame(){
-        driver.get("http://www.compendiumdev.co.uk/selenium/frames");
+        driver.get("https://testpages.herokuapp.com/frames/index.html");
         WebDriverWait wait = new WebDriverWait(driver,Driver.DEFAULT_TIMEOUT_SECONDS);
 
         assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));

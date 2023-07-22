@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.pageobjects.usingpagefactory.pages;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -65,7 +66,7 @@ public class BasicAjaxPageObject extends LoadableComponent<BasicAjaxPageObject> 
 
     @Override
     protected void load() {
-        driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     @Override

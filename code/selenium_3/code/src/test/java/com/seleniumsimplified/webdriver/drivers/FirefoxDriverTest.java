@@ -3,6 +3,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -49,7 +50,7 @@ public class FirefoxDriverTest {
 
         WebDriver firefox = new FirefoxDriver();
 
-        firefox.get("https://testpages.herokuapp.com");
+        firefox.get(SiteUrls.rootUrl());
 
         Assert.assertTrue(firefox.getTitle().contains("Test Pages"));
 
@@ -76,7 +77,7 @@ public class FirefoxDriverTest {
         options.setProfile(profile);
         WebDriver firefox = new FirefoxDriver(options);
 
-        firefox.get("https://testpages.herokuapp.com");
+        firefox.get(SiteUrls.rootUrl());
 
         Assert.assertTrue(firefox.getTitle().contains("Test Pages"));
 
@@ -115,7 +116,7 @@ public class FirefoxDriverTest {
 
             WebDriver firefox = new FirefoxDriver(options);
 
-            firefox.get("https://testpages.herokuapp.com");
+            firefox.get(SiteUrls.rootUrl());
 
             Assert.assertTrue(firefox.getTitle().contains("Test Pages"));
 

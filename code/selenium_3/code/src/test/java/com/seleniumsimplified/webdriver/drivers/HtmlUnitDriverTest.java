@@ -3,6 +3,7 @@ package com.seleniumsimplified.webdriver.drivers;
 import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -27,7 +28,7 @@ public class HtmlUnitDriverTest {
         // then change it back to FIREFOX_3_6
         WebDriver htmlunit = new HtmlUnitDriver(BrowserVersion.FIREFOX_52);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -39,7 +40,7 @@ public class HtmlUnitDriverTest {
 
         WebDriver htmlunit = new HtmlUnitDriver(true);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -56,7 +57,7 @@ public class HtmlUnitDriverTest {
 
         WebDriver htmlunit = new HtmlUnitDriver(capabilities);
 
-        htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        htmlunit.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 
@@ -105,7 +106,7 @@ public class HtmlUnitDriverTest {
 
             WebDriver htmlunit = new HtmlUnitDriver(capabilities);
 
-            htmlunit.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            htmlunit.get(SiteUrls.basicHtmlFormPageUrl());
 
             assertThat(htmlunit.getTitle(), is("HTML Form Elements"));
 

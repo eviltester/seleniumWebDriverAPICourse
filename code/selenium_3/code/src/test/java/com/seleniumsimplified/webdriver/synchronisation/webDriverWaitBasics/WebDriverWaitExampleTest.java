@@ -15,8 +15,7 @@ public class WebDriverWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                            "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         new WebDriverWait(driver,10).until(
                 ExpectedConditions.titleIs("HTML Form Elements"));
@@ -29,8 +28,7 @@ public class WebDriverWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         new WebDriverWait(driver,10,50).until(
                 ExpectedConditions.titleIs("HTML Form Elements"));

@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.frames;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,8 +15,7 @@ public class FramesExampleTest {
     @Test
     public void switchToFrameExample(){
 
-        final String framesPage =
-                "https://testpages.herokuapp.com/styled/frames/frames-test.html";
+        final String framesPage = SiteUrls.framesTestPageUrl();
 
         // WebDriver driver = new ChromeDriver();
         // driver.get(framesPage);

@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.mobile;
 
 //import org.openqa.selenium.android.AndroidDriver;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -38,7 +39,7 @@ public class AndroidTest {
 
 
         try {
-            // TODOD add the url andd port of your Appium server
+            // TODO add the url and port of your Appium server
             String appiumURL = "http://127.0.0.1:4723/wd/hub";
             driver = new RemoteWebDriver(
                     new URL(appiumURL),
@@ -50,7 +51,7 @@ public class AndroidTest {
 
     @Test
     public void simpleInteraction(){
-        driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));

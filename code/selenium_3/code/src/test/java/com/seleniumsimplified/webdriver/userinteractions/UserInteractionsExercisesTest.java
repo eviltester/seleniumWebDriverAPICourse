@@ -21,7 +21,7 @@ public class UserInteractionsExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
+        driver = Driver.get("https://testpages.herokuapp.com/" +
                 "gui_user_interactions.html");
     }
 

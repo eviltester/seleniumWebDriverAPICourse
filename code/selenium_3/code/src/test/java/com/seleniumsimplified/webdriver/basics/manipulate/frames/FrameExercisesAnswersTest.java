@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.frames;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -32,8 +33,8 @@ public class FrameExercisesAnswersTest {
     @Before
     public void loadPage(){
         // because we are switching between frames I will 'get' the page prior to every test
-        //driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
-        driver = Driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
+        //driver.get(SiteUrls.framesTestPageUrl());
+        driver = Driver.get(SiteUrls.framesTestPageUrl());
     }
 
 

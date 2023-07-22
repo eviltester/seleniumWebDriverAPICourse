@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.pageobjects.refactorExampleOneExercise.pages;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,7 +49,7 @@ public class BasicAjaxPageObject {
     }
 
     public void get() {
-        driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     public void selectCategory(Category category) {

@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -20,7 +21,7 @@ public class WaitingExercisesTest {
     @Test
     public void canReturnAWebElementInsteadOfABooleanUsingAnonymousClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -62,7 +63,7 @@ public class WaitingExercisesTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
@@ -98,7 +99,7 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
         wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 
         driver.findElement((By.id("delaygotobasic"))).click();
@@ -117,7 +118,7 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
         wait = new WebDriverWait(driver,Duration.ofSeconds(8));
 
         driver.findElement((By.id("delaygotobasic"))).click();

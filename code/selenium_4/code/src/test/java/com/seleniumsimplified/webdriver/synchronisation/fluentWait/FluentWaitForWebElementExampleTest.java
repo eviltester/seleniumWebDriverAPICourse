@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.synchronisation.fluentWait;
 
 import com.google.common.base.Function;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -27,7 +28,7 @@ public class FluentWaitForWebElementExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
+        driver = Driver.get(SiteUrls.javascriptCountdownPageUrl());
     }
 
 
@@ -77,7 +78,6 @@ public class FluentWaitForWebElementExampleTest {
         // so the first argument is the parameter and the
         // second is the return type
         new FluentWait<WebElement>(countdown).
-                // prior to version 4 fluent wait was
                 withTimeout(Duration.ofSeconds(10)).
                 pollingEvery(Duration.ofMillis(100)).
                 until(new Function<WebElement, Boolean>() {

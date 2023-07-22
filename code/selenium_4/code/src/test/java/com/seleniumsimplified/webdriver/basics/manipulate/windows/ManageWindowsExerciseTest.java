@@ -1,13 +1,9 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.windows;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
-import org.junit.Assert;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ManageWindowsExerciseTest {
 
@@ -40,7 +36,7 @@ public class ManageWindowsExerciseTest {
     @Test
     public void resizeVanish(){
 
-        String pageUrl = "https://testpages.herokuapp.com/styled/css-media-queries.html";
+        String pageUrl = SiteUrls.windowSizeMediaQueriesPageUrl();
         WebDriver driver;
         //driver = new ChromeDriver()
         //driver.get(pageUrl);

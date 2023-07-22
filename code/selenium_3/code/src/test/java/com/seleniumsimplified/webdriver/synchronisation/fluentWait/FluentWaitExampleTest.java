@@ -10,6 +10,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -26,13 +27,20 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                            "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+
+        // Fluent wait constructor has changed for version 3.12
+        // we used to use
+        //        FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).
+        //                                withTimeout(10, TimeUnit.SECONDS).
+        //                                pollingEvery(100, TimeUnit.MILLISECONDS).
+        //                                ignoring(NotFoundException.class);
+        // now we use Duration.ofSeconds or Duration.ofMillis
 
         FluentWait<WebDriver> wait = new FluentWait<WebDriver>(driver).
-                                withTimeout(10, TimeUnit.SECONDS).
-                                pollingEvery(100, TimeUnit.MILLISECONDS).
-                                ignoring(NotFoundException.class);
+                withTimeout(Duration.ofSeconds(10)).
+                pollingEvery(Duration.ofMillis(100)).
+                ignoring(NotFoundException.class);
 
         wait.until(ExpectedConditions.titleIs("HTML Form Elements"));
 
@@ -46,11 +54,16 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+
+        // Fluent wait constructor has changed for version 3.12
+        // we used to use
+//        WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver,10).
+//                                 pollingEvery(100, TimeUnit.MILLISECONDS);
 
         WebDriverWait wait = (WebDriverWait) new WebDriverWait(driver,10).
-                                 pollingEvery(100, TimeUnit.MILLISECONDS);
+                pollingEvery(Duration.ofMillis(100));
+
 
         // the following line is not needed because a WebDriverWait
         // add the NotFoundException to the ignored list
@@ -70,9 +83,15 @@ public class FluentWaitExampleTest {
 
         Long startTime = System.currentTimeMillis();
 
+        // Fluent wait constructor has changed for version 3.12
+        // we used to use
+//        FluentWait<Long> wait = new FluentWait<Long>(startTime).
+//                                    withTimeout(7, TimeUnit.SECONDS).
+//                                    pollingEvery(50, TimeUnit.MILLISECONDS);
+        // now we use
         FluentWait<Long> wait = new FluentWait<Long>(startTime).
-                                    withTimeout(7, TimeUnit.SECONDS).
-                                    pollingEvery(50, TimeUnit.MILLISECONDS);
+                                      withTimeout(Duration.ofSeconds(7)).
+                                      pollingEvery(Duration.ofMillis(50));
 
         Long endTime = wait.until(new Function<Long,Long>() {
                             @Override

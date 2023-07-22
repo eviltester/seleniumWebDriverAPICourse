@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.screenshots;
 
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
 import org.openqa.selenium.HasCapabilities;
 import org.openqa.selenium.OutputType;
@@ -28,7 +29,7 @@ public class Ex1_Answer_CanWeTakeScreenshotsTest {
 
         Driver.set(Driver.BrowserName.GOOGLECHROME);
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         HasCapabilities capabilityDriver = (HasCapabilities)driver;
 
@@ -46,7 +47,7 @@ public class Ex1_Answer_CanWeTakeScreenshotsTest {
 
         Driver.set(Driver.BrowserName.GOOGLECHROME);
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         try{
             TakesScreenshot snapper = (TakesScreenshot)driver;
@@ -71,7 +72,7 @@ public class Ex1_Answer_CanWeTakeScreenshotsTest {
     public void htmlUnitDoesNotDoScreenshotsViaException(){
 
         WebDriver driver = new HtmlUnitDriver();
-        driver.get("https://testpages.herokuapp.com");
+        driver.get(SiteUrls.rootUrl());
 
         try{
             TakesScreenshot snapper = (TakesScreenshot)driver;

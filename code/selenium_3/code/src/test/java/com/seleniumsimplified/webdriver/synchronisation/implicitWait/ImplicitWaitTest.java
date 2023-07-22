@@ -22,8 +22,7 @@ public class ImplicitWaitTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
     }
 
     @Test
@@ -32,8 +31,7 @@ public class ImplicitWaitTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 

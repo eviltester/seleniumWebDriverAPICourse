@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.cookies;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -22,11 +23,8 @@ public class CookiesExercisesTest {
     @Before
     public void setup(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                        "search.php");
+        driver = Driver.get(SiteUrls.searchPageUrl());
 
-        //"http://compendiumdev.co.uk/selenium/"
-        //"seleniumsimplified.com/testpages/search.php""
         //seleniumSimplifiedSearchLastVisit
         //seleniumSimplifiedSearchNumVisits
         //seleniumSimplifiedLastSearch
@@ -164,11 +162,7 @@ public class CookiesExercisesTest {
 
         driver.manage().deleteCookieNamed("seleniumSimplifiedSearchNumVisits");
 
-        String path = "/selenium";
-
-        if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
-            path = path + "/"; // need to add a trailing / for firefox only
-        }
+        String path = "/";
 
         driver.manage().addCookie(
                 new Cookie.Builder("seleniumSimplifiedSearchNumVisits",

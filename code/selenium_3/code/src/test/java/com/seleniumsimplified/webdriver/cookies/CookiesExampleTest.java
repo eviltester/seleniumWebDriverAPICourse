@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.cookies;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Cookie;
@@ -13,7 +14,7 @@ public class CookiesExampleTest {
     @Test
     public void visitSearchPageAndCheckNoLastSearchCookie(){
 
-        WebDriver driver = Driver.get("http://compendiumdev.co.uk/selenium/search.php");
+        WebDriver driver = Driver.get(SiteUrls.searchPageUrl());
 
         driver.manage().deleteAllCookies();
 

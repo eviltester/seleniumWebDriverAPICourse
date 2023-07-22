@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.windows;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -12,7 +13,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class ManageWindowsExampleTest {
 
-    String pageUrl = "https://testpages.herokuapp.com/styled/css-media-queries.html";
+    String pageUrl = SiteUrls.windowSizeMediaQueriesPageUrl();
     WebDriver driver;
 
     @BeforeClass

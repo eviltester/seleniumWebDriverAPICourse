@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.remote;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -38,8 +39,7 @@ public class GridTest {
 
     @Test
     public void simpleInteraction(){
-       driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/basic_html_form.html");
+       driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));

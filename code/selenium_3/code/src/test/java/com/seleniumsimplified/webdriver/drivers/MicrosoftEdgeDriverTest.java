@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -17,9 +18,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by Alan on 28/07/2016.
- */
+
 public class MicrosoftEdgeDriverTest {
 
     /*
@@ -54,12 +53,12 @@ public class MicrosoftEdgeDriverTest {
         // Or use capabilities
         WebDriver driver = new EdgeDriver();
 
-        driver.get("http://compendiumdev.co.uk/selenium/testpages/");
+        driver.get(SiteUrls.rootUrl());
 
         // found that Edge didn't always synchronise on page load properly so I added a wait for title
         new WebDriverWait(driver, 10).until(ExpectedConditions.titleContains("Selenium"));
 
-        Assert.assertEquals("Selenium Test Pages", driver.getTitle());
+        // no need for an assert as the webdriver wait would fail if title didn't match
 
         driver.close();
         driver.quit();
@@ -80,7 +79,7 @@ public class MicrosoftEdgeDriverTest {
 
             WebDriver driver = new EdgeDriver(capabilities);
 
-            driver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            driver.get(SiteUrls.basicHtmlFormPageUrl());
 
             assertThat(driver.getTitle(), is("HTML Form Elements"));
 

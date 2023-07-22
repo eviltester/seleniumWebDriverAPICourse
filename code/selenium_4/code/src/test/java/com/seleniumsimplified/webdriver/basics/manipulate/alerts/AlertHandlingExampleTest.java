@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.alerts;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -18,8 +19,7 @@ public class AlertHandlingExampleTest {
     public void setup(){
         // I could instantiate a driver directly if I wasn't using a Driver manager
         //driver = new ChromeDriver();
-        driver = Driver.get("https://testpages.herokuapp.com/"+
-                            "styled/alerts/alert-test.html");
+        driver = Driver.get(SiteUrls.basicAlertsPageUrl());
     }
 
     @Test

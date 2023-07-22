@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -45,7 +46,7 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
@@ -74,7 +75,7 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingMethod(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
 
         driver.findElement((By.id("delaygotobasic"))).click();
 

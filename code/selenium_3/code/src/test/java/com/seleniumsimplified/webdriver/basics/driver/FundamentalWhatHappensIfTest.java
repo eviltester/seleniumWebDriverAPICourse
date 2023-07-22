@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.driver;
 
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.NoSuchSessionException;
@@ -19,8 +20,8 @@ public class FundamentalWhatHappensIfTest {
     public void whatHappensIfIQuitThenClose(){
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("http://www.compendiumdev.co.uk/selenium");
-        assertTrue(driver.getTitle().startsWith("Selenium Simplified"));
+        driver.get(SiteUrls.rootUrl());
+        assertTrue(driver.getTitle().startsWith("Selenium"));
 
         driver.quit();
         try{
@@ -40,8 +41,8 @@ public class FundamentalWhatHappensIfTest {
     public void whatHappensIfICloseWithNothingOpen(){
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("http://www.compendiumdev.co.uk/selenium");
-        assertTrue(driver.getTitle().startsWith("Selenium Simplified"));
+        driver.get(SiteUrls.rootUrl());
+        assertTrue(driver.getTitle().startsWith("Selenium"));
 
         driver.close();
 

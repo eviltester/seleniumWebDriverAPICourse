@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.javascript;
 
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class JavascriptExecuteAsyncExerciseTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://www.compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     @Before
@@ -68,7 +69,7 @@ public class JavascriptExecuteAsyncExerciseTest {
         System.out.println((String)response);
 
         assertThat((String) response,
-                containsString("{optionValue:10, optionDisplay: 'C++'}"));
+                containsString("{\"optionValue\":10, \"optionDisplay\": \"C++\"}"));
 
     }
 

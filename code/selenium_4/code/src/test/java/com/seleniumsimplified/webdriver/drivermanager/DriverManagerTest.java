@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.drivermanager;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -30,7 +31,7 @@ public class DriverManagerTest {
 
     public void assertBrowserTestRuns(){
         driver = DriverManager.get();
-        driver.get("https://testpages.herokuapp.com/basic_web_page.html");
+        driver.get(SiteUrls.basicWebPageUrl());
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
     }
 

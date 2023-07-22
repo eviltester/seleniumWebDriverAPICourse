@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.driver;
 
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -38,7 +39,7 @@ public class FirstTest {
         // safest to run HtmlUnitDriver without JavaScript
         WebDriver driver = new HtmlUnitDriver();    // create with 'true' to enable JavaScript
 
-        driver.get("https://testpages.herokuapp.com");
+        driver.get(SiteUrls.rootUrl());
 
         assertTrue(driver.getTitle().contains(
                 "Test Pages"));

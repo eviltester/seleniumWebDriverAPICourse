@@ -17,7 +17,7 @@ public class UseWebDriverWaitFluentlyTest {
     @Test
     public void wait5Seconds(){
 
-        WebDriver driver = Driver.get("http://compendiumdev.co.uk");
+        WebDriver driver = Driver.get("https://testpages.herokuapp.com/");
 
         long currTime = System.currentTimeMillis();
 

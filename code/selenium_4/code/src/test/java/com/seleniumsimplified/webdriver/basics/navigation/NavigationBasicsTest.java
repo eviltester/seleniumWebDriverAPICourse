@@ -19,7 +19,7 @@ import static org.junit.Assert.assertTrue;
 public class NavigationBasicsTest {
 
     static WebDriver driver;
-    final private String PROTOCOL = "http";
+    final private String PROTOCOL = "https";
     final private String DOMAIN = "testpages.herokuapp.com";
     final private String ROOT_URL = PROTOCOL + "://" + DOMAIN;
 

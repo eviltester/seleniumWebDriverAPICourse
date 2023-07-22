@@ -18,7 +18,7 @@ public class WebDriverWaitExampleTestRefactored {
     @Before
     public void gotoPage(){
         driver = Driver.get(
-                "http://compendiumdev.co.uk/selenium/basic_html_form.html");
+                "https://testpages.herokuapp.com/basic_html_form.html");
 
         // create a default wait
         wait = new WebDriverWait(driver,10);

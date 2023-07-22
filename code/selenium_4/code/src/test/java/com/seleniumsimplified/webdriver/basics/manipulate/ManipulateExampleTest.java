@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,8 +19,7 @@ public class ManipulateExampleTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("https://testpages.herokuapp.com/" +
-                "basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
     }
 
     @Test

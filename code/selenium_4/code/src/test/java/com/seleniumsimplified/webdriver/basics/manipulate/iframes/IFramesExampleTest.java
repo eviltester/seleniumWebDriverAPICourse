@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.iframes;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,8 +15,7 @@ public class IFramesExampleTest {
     @Test
     public void switchToiFrameExample(){
 
-        final String iframesPage =
-                "https://testpages.herokuapp.com/styled/iframes-test.html";
+        final String iframesPage = SiteUrls.iframesTestPageUrl();
 
 //         WebDriver driver = new ChromeDriver();
 //         driver.get(iframesPage);

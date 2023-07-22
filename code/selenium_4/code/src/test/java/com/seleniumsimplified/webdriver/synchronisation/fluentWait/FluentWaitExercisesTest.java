@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.synchronisation.fluentWait;
 
 import com.google.common.base.Function;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class FluentWaitExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
+        driver = Driver.get(SiteUrls.javascriptCountdownPageUrl());
     }
 
 

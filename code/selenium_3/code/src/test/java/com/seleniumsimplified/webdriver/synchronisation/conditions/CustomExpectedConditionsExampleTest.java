@@ -21,8 +21,7 @@ public class CustomExpectedConditionsExampleTest {
 
             WebDriver driver;
 
-            driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                    "basic_ajax.html");
+            driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
             // select Server
             WebElement categorySelect = driver.findElement(By.id("combo1"));

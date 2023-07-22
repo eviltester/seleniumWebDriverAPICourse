@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.interrogate.findby;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,8 +19,7 @@ public class AFirstFindByExampleTest {
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
         driver = Driver.get();
-        driver.get("https://testpages.herokuapp.com/" +
-                "find_by_playground.php");
+        driver.get(SiteUrls.findByPlaygroundPageUrl());
     }
 
     @Test

@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.userinteractions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.ComparisonFailure;
@@ -23,8 +24,7 @@ public class UserInteractionsExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/" +
-                "gui_user_interactions.html");
+        driver = Driver.get(SiteUrls.basicGuiInteractionsPageUrl());
     }
 
     @Before

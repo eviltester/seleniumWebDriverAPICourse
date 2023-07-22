@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.interrogate;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,9 +19,7 @@ public class WebElementInterrogationTest {
     public void WebElementInterrogationBasics(){
 
         final WebDriver driver;
-        final String theTestPageURL =
-                "https://testpages.herokuapp.com/" +
-                "basic_web_page.html";
+        final String theTestPageURL = SiteUrls.basicWebPageUrl();
 
         //driver = new FirefoxDriver();
         driver = Driver.get();

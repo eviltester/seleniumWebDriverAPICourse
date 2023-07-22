@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.javascript;
 
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -14,8 +15,7 @@ public class JavascriptExecutorExampleTest {
 
     @Test
     public void callAJavaScriptFunctionOnThePage(){
-        WebDriver driver = Driver.get(
-                "https://testpages.herokuapp.com/canvas_basic.html");
+        WebDriver driver = Driver.get(SiteUrls.basicCanvasPageUrl());
 
         JavascriptExecutor js =(JavascriptExecutor)driver;
 

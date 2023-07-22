@@ -26,9 +26,9 @@ public class DriverInterrogateRefactoredTest {
     public void driverLevelPageInterrogateMethods(){
 
         final String theTestPageURL =
-                "//www.compendiumdev.co.uk/selenium/basic_web_page.html";
+                "/basic_web_page.html";
 
-        driver.navigate().to("http:" + theTestPageURL);
+        driver.navigate().to("http://testpages.herokuapp.com" + theTestPageURL);
 
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
 

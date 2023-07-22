@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.screenshots;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.apache.commons.io.FileUtils;
 import org.junit.Assert;
 import org.junit.Test;
@@ -24,9 +25,9 @@ public class ScreenshotsScratchpad {
         WebDriver driver;
 
         //driver = new ChromeDriver();
-        //driver.get("https://testpages.herokuapp.com");
+        //driver.get(SiteUrls.rootUrl());
 
-        driver = Driver.get("https://testpages.herokuapp.com");
+        driver = Driver.get(SiteUrls.rootUrl());
 
 
         // driver.quit();

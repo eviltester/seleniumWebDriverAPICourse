@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.screenshots;
 
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Assert;
@@ -38,10 +39,10 @@ public class ScreenshotsExampleTest {
         // if you want to use a normal driver then create this here
         // and comment out the Driver.get line below
         //driver = new FirefoxDriver();
-        //driver.get("https://testpages.herokuapp.com");
+        //driver.get(SiteUrls.rootUrl());
 
         //
-        driver = Driver.get("https://testpages.herokuapp.com");
+        driver = Driver.get(SiteUrls.rootUrl());
 
         // cast the driver to a TakesScreenshot
         TakesScreenshot snapper = (TakesScreenshot)driver;
@@ -95,7 +96,7 @@ public class ScreenshotsExampleTest {
     @Test
     public void exampleByteArrayHandling() throws IOException {
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         TakesScreenshot snapper = (TakesScreenshot)driver;
 
@@ -120,7 +121,7 @@ public class ScreenshotsExampleTest {
     @Test
     public void exampleBase64Handling() throws IOException {
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         TakesScreenshot snapper = (TakesScreenshot)driver;
         String tempImageFileAsBase64 =

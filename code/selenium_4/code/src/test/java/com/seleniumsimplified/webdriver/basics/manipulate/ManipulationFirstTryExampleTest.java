@@ -2,13 +2,12 @@ package com.seleniumsimplified.webdriver.basics.manipulate;
 
 import com.google.common.base.Predicate;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static org.junit.Assert.assertEquals;
 
@@ -20,8 +19,7 @@ public class ManipulationFirstTryExampleTest {
     @Ignore("without waits this will only work in debug mode")
     public void manipulation1stTry(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/" +
-                "basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         // select Server
         driver.findElement(By.cssSelector("option[value='3']")).click();

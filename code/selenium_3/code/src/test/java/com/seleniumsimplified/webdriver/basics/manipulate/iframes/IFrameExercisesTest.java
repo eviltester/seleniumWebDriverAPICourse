@@ -1,11 +1,10 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.iframes;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
+
 
 public class IFrameExercisesTest {
 
@@ -26,13 +25,18 @@ public class IFrameExercisesTest {
 
     @BeforeClass
     public static void createDriver(){
-        driver = new ChromeDriver();
+        //driver = new ChromeDriver();
     }
 
     @Before
     public void loadPage(){
         // because we are switching between iframes I will 'get' the page prior to every test
-        driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
+        driver = Driver.get(SiteUrls.iframesTestPageUrl());
+    }
+
+    @Test
+    public void switchToX(){
+        Assert.assertTrue("write the tests and assertions below", true);
     }
 
     // switch to the second iframe by number (1) and assert on

@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.fluently;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class UseWebDriverWaitFluentlyTest {
     @Test
     public void wait5Seconds(){
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com/");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         long currTime = System.currentTimeMillis();
 

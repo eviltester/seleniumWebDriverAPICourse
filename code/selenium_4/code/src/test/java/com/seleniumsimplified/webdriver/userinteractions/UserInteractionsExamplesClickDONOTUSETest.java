@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.userinteractions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import junit.framework.AssertionFailedError;
 import org.junit.Before;
 import org.junit.Ignore;
@@ -24,7 +25,7 @@ public class UserInteractionsExamplesClickDONOTUSETest {
 
     @Before
     public void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
     }
 
     @Test

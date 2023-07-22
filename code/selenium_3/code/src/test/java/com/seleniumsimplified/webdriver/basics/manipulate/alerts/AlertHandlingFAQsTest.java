@@ -1,12 +1,12 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.alerts;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.*;
-import org.openqa.selenium.firefox.FirefoxDriver;
 
 
 import static org.junit.Assert.*;
@@ -19,8 +19,7 @@ public class AlertHandlingFAQsTest {
     public void setup(){
         // I could instantiate a driver directly if I wasn't using a Driver manager
         //driver = new ChromeDriver();
-        driver = Driver.get("https://testpages.herokuapp.com/"+
-                "styled/alerts/alert-test.html");
+        driver = Driver.get(SiteUrls.basicAlertsPageUrl());
     }
 
 
@@ -41,8 +40,7 @@ public class AlertHandlingFAQsTest {
 
         // try to switch to an alert if not present throws an exception
 
-        driver.get("https://testpages.herokuapp.com/"+
-                "styled/alerts/alert-test.html");
+        driver.get(SiteUrls.basicAlertsPageUrl());
 
         // not triggered any alerts yet
         Assert.assertFalse(doesAlertExist());
@@ -66,8 +64,7 @@ public class AlertHandlingFAQsTest {
         // Q: Why is my alert not working?
         // A: Because it is not a div
 
-        driver.get("https://testpages.herokuapp.com/" +
-                "styled/alerts/fake-alert-test.html");
+        driver.get(SiteUrls.fakeAlertsPageUrl());
 
         driver.findElement(By.id("fakealert")).click();
 
@@ -87,8 +84,7 @@ public class AlertHandlingFAQsTest {
     @Test
     public void whatDifferenceDismissAccept(){
 
-        driver.get("https://testpages.herokuapp.com/"+
-                "styled/alerts/alert-test.html");
+        driver.get(SiteUrls.basicAlertsPageUrl());
 
         //What is the difference between `dismiss` and `accept`?
 
@@ -136,8 +132,7 @@ public class AlertHandlingFAQsTest {
     @Test
     public void basicAlertHandlingSendKeysExceptionTest(){
 
-        driver.get("https://testpages.herokuapp.com/"+
-                "styled/alerts/alert-test.html");
+        driver.get(SiteUrls.basicAlertsPageUrl());
 
         driver.findElement(By.id("alertexamples")).click();
 

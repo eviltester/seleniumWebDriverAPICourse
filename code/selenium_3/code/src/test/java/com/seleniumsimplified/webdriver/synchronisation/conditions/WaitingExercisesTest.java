@@ -18,8 +18,7 @@ public class WaitingExercisesTest {
     @Test
     public void canReturnAWebElementInsteadOfABooleanUsingAnonymousClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -61,8 +60,7 @@ public class WaitingExercisesTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
@@ -98,8 +96,7 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
         wait = new WebDriverWait(driver,8);
 
         driver.findElement((By.id("delaygotobasic"))).click();
@@ -118,8 +115,7 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
         wait = new WebDriverWait(driver,8);
 
         driver.findElement((By.id("delaygotobasic"))).click();

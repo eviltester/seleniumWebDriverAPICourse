@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.cookies;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -30,8 +31,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
     @Before
     public void setup(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                        "search.php");
+        driver = Driver.get(SiteUrls.searchPageUrl());
 
         //seleniumSimplifiedSearchLastVisit
         //seleniumSimplifiedSearchNumVisits
@@ -239,13 +239,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
 
         driver.manage().deleteCookieNamed(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS);
 
-        String path = "/selenium";
-
-        // This will not happen if we are running on firefox on grid
-        // So the test might fail
-        if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
-            path = path + "/"; // need to add a trailing / for firefox only
-        }
+        String path = "/";
 
         driver.manage().addCookie(
                 new Cookie.Builder(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS,

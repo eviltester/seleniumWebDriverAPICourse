@@ -16,8 +16,7 @@ public class WebDriverWaitFaqTest {
 
         WebDriver driver;
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
 
         try{
             new WebDriverWait(driver,10).until(

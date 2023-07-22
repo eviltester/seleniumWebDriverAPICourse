@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.iframes;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -18,8 +19,8 @@ public class IFrameFaqTest {
     @BeforeClass
     public static void setup(){
         // driver = new ChromeDriver();
-        //driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
-        driver = Driver.get("https://testpages.herokuapp.com/styled/iframes-test.html");
+        //driver.get(SiteUrls.iframesTestPageUrl());
+        driver = Driver.get(SiteUrls.iframesTestPageUrl());
 
     }
 

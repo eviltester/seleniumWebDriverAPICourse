@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -20,9 +21,7 @@ import java.time.Duration;
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-/**
- * Created by Alan on 28/07/2016.
- */
+
 public class MicrosoftEdgeDriverTest {
 
     /*
@@ -57,7 +56,7 @@ public class MicrosoftEdgeDriverTest {
         // Or use capabilities
         WebDriver driver = new EdgeDriver();
 
-        driver.get("https://testpages.herokuapp.com/");
+        driver.get(SiteUrls.rootUrl());
 
         // found that Edge didn't always synchronise on page load properly so I added a wait for title
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleContains("Selenium"));
@@ -86,7 +85,7 @@ public class MicrosoftEdgeDriverTest {
 
             WebDriver driver = new EdgeDriver(new EdgeOptions());
 
-            driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+            driver.get(SiteUrls.basicHtmlFormPageUrl());
 
             assertThat(driver.getTitle(), is("HTML Form Elements"));
 

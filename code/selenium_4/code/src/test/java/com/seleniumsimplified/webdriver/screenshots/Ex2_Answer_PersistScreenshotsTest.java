@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.screenshots;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.apache.commons.io.FileUtils;
 import org.junit.*;
 import org.openqa.selenium.OutputType;
@@ -34,7 +35,7 @@ public class Ex2_Answer_PersistScreenshotsTest {
     @Test
     public void testIfWeCanTakeScreenshots(){
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         //if(((HasCapabilities)driver).getCapabilities().is(CapabilityType.TAKES_SCREENSHOT)){
         if(CanBrowser.takeScreenshots(driver)){
@@ -48,7 +49,7 @@ public class Ex2_Answer_PersistScreenshotsTest {
     public void persistOutputTypeFile() throws IOException {
         // OutputType.FILE works well testing on a local machine
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         if(CanBrowser.takeScreenshots(driver)){
             // create screenshot as FILE
@@ -91,7 +92,7 @@ public class Ex2_Answer_PersistScreenshotsTest {
         // this works well testing on remote driver because
         // screenshot returned as a string to local machine
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         if(CanBrowser.takeScreenshots(driver)){
 
@@ -129,7 +130,7 @@ public class Ex2_Answer_PersistScreenshotsTest {
         // this works well testing on remote driver because
         // screenshot returned as a string to local machine
 
-        WebDriver driver = Driver.get("https://testpages.herokuapp.com");
+        WebDriver driver = Driver.get(SiteUrls.rootUrl());
 
         if(CanBrowser.takeScreenshots(driver)){
 

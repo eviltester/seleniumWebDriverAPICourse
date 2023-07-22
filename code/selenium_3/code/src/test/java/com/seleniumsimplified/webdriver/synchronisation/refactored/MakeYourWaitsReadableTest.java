@@ -20,8 +20,7 @@ public class MakeYourWaitsReadableTest {
     @Before
     public void setupForTest(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_ajax.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
 
         // instantiate your waits at the highest level you can, to reuse in the test
         wait = new WebDriverWait(driver,10);

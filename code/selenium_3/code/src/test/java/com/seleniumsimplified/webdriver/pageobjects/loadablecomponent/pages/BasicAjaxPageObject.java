@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.pageobjects.loadablecomponent.pages;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -46,7 +47,7 @@ public class BasicAjaxPageObject extends LoadableComponent<BasicAjaxPageObject> 
 
     @Override
     protected void load() {
-        driver.get("http://compendiumdev.co.uk/selenium/basic_ajax.html");
+        driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     @Override

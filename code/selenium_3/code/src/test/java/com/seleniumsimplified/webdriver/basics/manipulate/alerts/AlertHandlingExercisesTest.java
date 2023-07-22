@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.alerts;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
@@ -15,8 +16,7 @@ public class AlertHandlingExercisesTest {
     @Before
     public void setup(){
 
-        String url= "https://testpages.herokuapp.com/"+
-                "styled/alerts/alert-test.html";
+        String url= SiteUrls.basicAlertsPageUrl();
 
         // I could instantiate a driver directly if I wasn't using a Driver manager
         // driver = new ChromeDriver();

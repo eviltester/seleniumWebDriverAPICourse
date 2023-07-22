@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.selectSupport;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -22,8 +23,7 @@ public class SelectSupportTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/" +
-                            "basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
     }
 
     @Test

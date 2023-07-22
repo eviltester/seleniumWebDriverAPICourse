@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.navigation;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -21,8 +22,7 @@ public class NavigationExampleTest {
 
     @Test
     public void navigateWithNavigateTo(){
-        driver.navigate().to(
-                "http://www.compendiumdev.co.uk/selenium/search.php");
+        driver.navigate().to(SiteUrls.searchPageUrl());
         assertTrue(driver.getTitle().
                 startsWith("Selenium Simplified Search Engine"));
     }

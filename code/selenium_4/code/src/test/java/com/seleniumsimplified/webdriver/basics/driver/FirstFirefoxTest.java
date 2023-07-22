@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.basics.driver;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -34,7 +35,7 @@ public class FirstFirefoxTest {
 
         WebDriver driver = new FirefoxDriver();
 
-        driver.get("https://testpages.herokuapp.com");
+        driver.get(SiteUrls.rootUrl());
 
         assertTrue(driver.getTitle().contains(
                 "Test Pages"));

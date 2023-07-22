@@ -1,16 +1,15 @@
 package com.seleniumsimplified.webdriver.basics.interrogate;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.*;
 
 import static org.hamcrest.core.Is.is;
 import static org.junit.Assert.assertThat;
 
-@Ignore
 public class GetTitleReplacementExerciseTest {
 
     static WebDriver driver;
@@ -39,8 +38,7 @@ public class GetTitleReplacementExerciseTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("http://www.compendiumdev.co.uk" +
-                "/selenium/find_by_playground.php");
+        driver = Driver.get(SiteUrls.findByPlaygroundPageUrl());
     }
 
     @Test

@@ -23,8 +23,7 @@ public class UserInteractionsExamplesClickDONOTUSETest {
 
     @Before
     public void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_html_form.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
     }
 
     @Test

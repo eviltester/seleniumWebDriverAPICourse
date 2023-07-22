@@ -12,6 +12,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 public class FluentWaitForWebElementExampleTest {
@@ -26,7 +27,7 @@ public class FluentWaitForWebElementExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
 
@@ -39,6 +40,36 @@ public class FluentWaitForWebElementExampleTest {
         new WebDriverWait(driver,10).until(ExpectedConditions.visibilityOf(countdown));
     }
 
+    /*
+        Prior to version 3.12 the fluent wait would use timeouts
+
+                new FluentWait<WebElement>(countdown).
+                withTimeout(10, TimeUnit.SECONDS).
+                pollingEvery(100, TimeUnit.MILLISECONDS).
+                until(new Function<WebElement, Boolean>() {
+                          @Override
+                          public Boolean apply(WebElement element) {
+                              return element.getText().endsWith("04");
+                          }
+                      }
+                );
+
+         At version 3.12 and higher we use Duration instead
+
+        new FluentWait<WebElement>(countdown).
+                // prior to version 4 fluent wait was
+                withTimeout(Duration.ofSeconds(10)).
+                pollingEvery(Duration.ofMillis(100)).
+                until(new Function<WebElement, Boolean>() {
+                    @Override
+                    public Boolean apply(WebElement element) {
+                        return element.getText().endsWith("04");
+                    }
+                }
+                );
+
+     */
+
     @Test
     public void waitForWebElementFluently(){
 
@@ -46,8 +77,8 @@ public class FluentWaitForWebElementExampleTest {
         // so the first argument is the parameter and the
         // second is the return type
         new FluentWait<WebElement>(countdown).
-                withTimeout(10, TimeUnit.SECONDS).
-                pollingEvery(100,TimeUnit.MILLISECONDS).
+                withTimeout(Duration.ofSeconds(10)).
+                pollingEvery(Duration.ofMillis(100)).
                 until(new Function<WebElement, Boolean>() {
                     @Override
                     public Boolean apply(WebElement element) {
@@ -87,8 +118,8 @@ public class FluentWaitForWebElementExampleTest {
         // the generic is to define the argument
         // to apply predicate function to
         new FluentWait<WebElement>(countdown).
-                withTimeout(10, TimeUnit.SECONDS).
-                pollingEvery(100, TimeUnit.MILLISECONDS).
+                withTimeout(Duration.ofSeconds(10)).
+                pollingEvery(Duration.ofMillis(100)).
                 until(new Function<WebElement, Boolean>() {
                           @Override
                           public Boolean apply(WebElement element) {

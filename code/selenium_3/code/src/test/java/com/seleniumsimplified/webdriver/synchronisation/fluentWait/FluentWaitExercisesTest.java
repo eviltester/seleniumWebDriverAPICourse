@@ -13,6 +13,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
@@ -24,7 +25,7 @@ public class FluentWaitExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/javascript_countdown.html");
+        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
     }
 
 
@@ -42,9 +43,14 @@ public class FluentWaitExercisesTest {
     @Test
     public void waitForWebElementFluently(){
 
+        // Fluent wait constructor has changed for version 3.12
+        // we used to use
+        // withTimeout(20, TimeUnit.SECONDS).
+        //                pollingEvery(10,TimeUnit.MILLISECONDS).
+        // now we use Duration
         String theTime = new FluentWait<WebElement>(countdown).
-                withTimeout(20, TimeUnit.SECONDS).
-                pollingEvery(10,TimeUnit.MILLISECONDS).
+                withTimeout(Duration.ofSeconds(20)).
+                pollingEvery(Duration.ofMillis(100)).
                 until(new Function<WebElement, String>() {
                     @Override
                     public String apply(WebElement element) {

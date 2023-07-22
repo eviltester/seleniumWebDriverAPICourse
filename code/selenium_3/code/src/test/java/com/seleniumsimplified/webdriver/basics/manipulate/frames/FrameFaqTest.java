@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.manipulate.frames;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,8 +20,8 @@ public class FrameFaqTest {
     @BeforeClass
     public static void setup(){
         // driver = new ChromeDriver();
-        //driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
-        driver = Driver.get("https://testpages.herokuapp.com/styled/frames/frames-test.html");
+        //driver.get(SiteUrls.framesTestPageUrl());
+        driver = Driver.get(SiteUrls.framesTestPageUrl());
     }
 
     @Test

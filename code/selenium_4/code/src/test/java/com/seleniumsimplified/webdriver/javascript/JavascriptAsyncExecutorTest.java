@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.javascript;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
@@ -23,7 +24,7 @@ public class JavascriptAsyncExecutorTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
     }
 
     @Before
@@ -39,8 +40,7 @@ public class JavascriptAsyncExecutorTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/" +
-                "basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
 
         JavascriptExecutor js =(JavascriptExecutor)driver;

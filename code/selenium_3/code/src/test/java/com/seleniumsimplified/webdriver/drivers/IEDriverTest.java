@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.Proxy;
@@ -29,7 +30,7 @@ public class IEDriverTest {
 
         WebDriver iedriver = new InternetExplorerDriver();
 
-        iedriver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        iedriver.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(iedriver.getTitle(), is("HTML Form Elements"));
 
@@ -51,7 +52,7 @@ public class IEDriverTest {
 
             WebDriver iedriver = new InternetExplorerDriver(capabilities);
 
-            iedriver.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+            iedriver.get(SiteUrls.basicHtmlFormPageUrl());
 
             assertThat(iedriver.getTitle(), is("HTML Form Elements"));
 

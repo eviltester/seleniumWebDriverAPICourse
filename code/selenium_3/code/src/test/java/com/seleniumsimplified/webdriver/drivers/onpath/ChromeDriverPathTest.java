@@ -1,5 +1,6 @@
 package com.seleniumsimplified.webdriver.drivers.onpath;
 
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
 import org.junit.Test;
@@ -45,7 +46,7 @@ public class ChromeDriverPathTest {
 
         WebDriver chrome = new ChromeDriver();
 
-        chrome.get("http://www.compendiumdev.co.uk/selenium/basic_html_form.html");
+        chrome.get(SiteUrls.basicHtmlFormPageUrl());
 
         assertThat(chrome.getTitle(), is("HTML Form Elements"));
 

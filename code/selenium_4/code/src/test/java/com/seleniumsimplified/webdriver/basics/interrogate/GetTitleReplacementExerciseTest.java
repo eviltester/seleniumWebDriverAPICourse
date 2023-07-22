@@ -1,9 +1,9 @@
 package com.seleniumsimplified.webdriver.basics.interrogate;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.*;
 
@@ -38,7 +38,7 @@ public class GetTitleReplacementExerciseTest {
     @BeforeClass
     public static void createDriverAndVisitTestPage(){
         //driver = new FirefoxDriver();
-        driver = Driver.get("https://testpages.herokuapp.com/find_by_playground.php");
+        driver = Driver.get(SiteUrls.findByPlaygroundPageUrl());
     }
 
     @Test

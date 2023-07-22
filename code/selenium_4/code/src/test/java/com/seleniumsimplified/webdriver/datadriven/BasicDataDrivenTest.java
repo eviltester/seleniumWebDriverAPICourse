@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.datadriven;
 
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -24,7 +25,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 @RunWith(Parameterized.class)
 public class BasicDataDrivenTest {
 
-    public static String url = "https://testpages.herokuapp.com/calculate.php";
+    public static String url = SiteUrls.basicCalculatorPageUrl();
     public static WebDriver driver;
 
     private String number1;

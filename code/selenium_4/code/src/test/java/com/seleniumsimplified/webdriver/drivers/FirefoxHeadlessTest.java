@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.drivers;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -142,7 +143,7 @@ public class FirefoxHeadlessTest {
 
         WebDriver driver = new FirefoxDriver(options);
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+        driver.get(SiteUrls.basicWebPageUrl());
 
         Assert.assertEquals(driver.getTitle(), "Basic Web Page Title");
 
@@ -157,7 +158,7 @@ public class FirefoxHeadlessTest {
 
         WebDriver driver = new FirefoxDriver(options);
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+        driver.get(SiteUrls.basicWebPageUrl());
 
         Assert.assertEquals(driver.getTitle(), "Basic Web Page Title");
 
@@ -186,7 +187,7 @@ public class FirefoxHeadlessTest {
 
         WebDriver driver = new FirefoxDriver(options);
 
-        driver.get("https://testpages.herokuapp.com/styled/redirect/user-agent-redirect-test");
+        driver.get(SiteUrls.useragentRedirectPageUrl());
 
         Assert.assertTrue(driver.getTitle().contains("Mobile"));
         Assert.assertTrue(driver.getCurrentUrl().contains("/mobile/"));
@@ -215,7 +216,7 @@ public class FirefoxHeadlessTest {
 
         WebDriver driver = new FirefoxDriver(options);
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+        driver.get(SiteUrls.basicWebPageUrl());
 
         Assert.assertEquals(driver.getTitle(), "Basic Web Page Title");
 

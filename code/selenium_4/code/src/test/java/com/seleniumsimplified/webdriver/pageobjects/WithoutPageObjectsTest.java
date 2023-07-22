@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.pageobjects;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -85,7 +86,7 @@ public class WithoutPageObjectsTest {
     }
 
     private void startBrowserAndSelectServer() {
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));

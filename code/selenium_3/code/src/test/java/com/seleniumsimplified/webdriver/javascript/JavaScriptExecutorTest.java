@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.javascript;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Ignore;
@@ -19,7 +20,7 @@ public class JavaScriptExecutorTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("http://www.compendiumdev.co.uk/selenium/canvas_basic.html");
+        driver = Driver.get(SiteUrls.basicCanvasPageUrl());
     }
 
     @Before
@@ -78,11 +79,11 @@ public class JavaScriptExecutorTest {
     }
 
     @Test
-    public void useJQueryToHideBodyWithNoParams(){
+    public void useJavascriptToHideBodyWithNoParams(){
         JavascriptExecutor js =(JavascriptExecutor)driver;
         assertTrue(driver.findElement(By.cssSelector("#commands")).isDisplayed());
 
-        js.executeScript("$('body').hide();");
+        js.executeScript("document.getElementById('commands').style.display = 'none';");
 
         assertFalse(driver.findElement(By.cssSelector("#commands")).isDisplayed());
     }
@@ -93,7 +94,7 @@ public class JavaScriptExecutorTest {
         JavascriptExecutor js =(JavascriptExecutor)driver;
         assertTrue(driver.findElement(By.cssSelector("#commands")).isDisplayed());
 
-        js.executeScript("$(arguments[0]).hide();", driver.findElement(By.cssSelector("#commands")));
+        js.executeScript("arguments[0].style.display = 'none';", driver.findElement(By.cssSelector("#commands")));
 
         assertFalse(driver.findElement(By.cssSelector("#commands")).isDisplayed());
     }

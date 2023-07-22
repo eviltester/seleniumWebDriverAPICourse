@@ -44,8 +44,7 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
@@ -74,8 +73,7 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingMethod(){
 
-        driver = Driver.get("http://compendiumdev.co.uk/selenium/" +
-                "basic_redirect.html");
+        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
