@@ -19,7 +19,6 @@ public class SiteUrls {
 
     private static Map<PAGE_NAME, String> getMapOfPages() {
         Map<PAGE_NAME, String> pages = new HashMap<>();
-        pages.put(PAGE_NAME.COMPLEX_IFRAMES_TEST_PAGE, "frames/index.html");
         pages.put(PAGE_NAME.IFRAMES_TEST_PAGE, "styled/iframes-test.html");
         pages.put(PAGE_NAME.FRAMES_TEST_PAGE, "styled/frames/frames-test.html");
         pages.put(PAGE_NAME.BASIC_HTML_FORM_PAGE, "basic_html_form.html");
