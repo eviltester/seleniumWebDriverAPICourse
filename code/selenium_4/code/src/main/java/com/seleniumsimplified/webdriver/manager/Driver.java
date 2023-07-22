@@ -245,27 +245,13 @@ public class Driver extends Thread{
 
                 case GOOGLECHROME:
 
-//                    setDriverPropertyIfNecessary("webdriver.chrome.driver","/../tools/chromedriver/chromedriver.exe","C://webdrivers/chromedriver/chromedriver.exe");
-
                     ChromeOptions options = new ChromeOptions();
-//                    options.addArguments("disable-plugins");
-//                    options.addArguments("disable-extensions");
 
-
-                    // with Chrome v35 it now reports an error on --ignore-certificate-errors
-                    // so call with args "test-type"
-                    // https://code.google.com/p/chromedriver/issues/detail?id=799
-//                    options.addArguments("test-type");
-
-                    //DesiredCapabilities chromeCapabilities = DesiredCapabilities.chrome();
-
-                    // http://stackoverflow.com/questions/26772793/org-openqa-selenium-unhandledalertexception-unexpected-alert-open
-                    //chromeCapabilities.setCapability(CapabilityType.UNEXPECTED_ALERT_BEHAVIOUR, UnexpectedAlertBehaviour.IGNORE);
-
-                    // convert theoptions to capabilities
-                    //chromeCapabilities.setCapability(ChromeOptions.CAPABILITY, options);
-
-                    // capabilities are being removed in Chrome 4 so are being deprecated from 3.12
+                    if(System.getenv().
+                            getOrDefault("BROWSER_STATE","show").
+                            equals("Headless")){
+                        options.addArguments("--headless");
+                    }
 
                     aDriver = new ChromeDriver(options);
                     currentDriver = BrowserName.GOOGLECHROME;
