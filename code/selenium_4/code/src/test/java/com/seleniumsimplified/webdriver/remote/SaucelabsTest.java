@@ -67,53 +67,7 @@ public class SaucelabsTest {
                 checkBox1.isSelected());
     }
 
-    @Test
-    public void loadTheGreenPage(){
-        driver.get(SiteUrls.complexIframesPageUrl());
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Driver.DEFAULT_TIMEOUT_SECONDS));
 
-        assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));
-
-        // load the green page
-        driver.switchTo().frame("content");
-        driver.findElement(By.cssSelector("a[href='green.html']")).click();
-
-        wait.until(presenceOfElementLocated(By.cssSelector("h1[id='green']")));
-
-        // click on "Back to original page"
-        driver.findElement(By.cssSelector("a[href='content.html']")).click();
-
-        // assert for presence of "<h1>Content</h1>"
-        WebElement h1 = wait.until(presenceOfElementLocated(By.xpath("//h1[.='Content']")));
-
-        assertThat(h1.getText(), is("Content"));
-    }
-
-    @Test
-    public void workWithTheIFrame(){
-        driver.get(SiteUrls.complexIframesPageUrl());
-        WebDriverWait wait = new WebDriverWait(driver,Duration.ofSeconds(Driver.DEFAULT_TIMEOUT_SECONDS));
-
-        assertThat(driver.getTitle(), is("Frameset Example Title (Example 6)"));
-
-        // click on "menu"."iFrames Example"
-        driver.switchTo().frame("menu");
-        driver.findElement(By.cssSelector("a[href='iframe.html']")).click();
-
-        wait.until(titleIs("HTML Frames Example - iFrame Contents"));
-
-        // click on Example 5 in the iFrame
-        driver.switchTo().frame(0);
-        driver.findElement(By.cssSelector("a[href='frames_example_5.html']")).click();
-
-        wait.until(titleIs("Frameset Example Title (Example 5)"));
-
-        // then content.load main frames page
-        driver.switchTo().frame("content");
-        driver.findElement(By.cssSelector("a[href='index.html']")).click();
-
-        wait.until(titleIs("Frameset Example Title (Example 6)"));
-    }
 
     @AfterClass
     public static void stopSauce(){

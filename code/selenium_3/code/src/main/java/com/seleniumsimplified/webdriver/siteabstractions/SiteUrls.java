@@ -62,7 +62,6 @@ public class SiteUrls {
     public static String basicGuiInteractionsPageUrl(){ return pageOffRoot(PAGE_NAME.BASIC_GUI_INTERACTIONS);}
     public static String useragentRedirectPageUrl(){ return pageOffRoot(PAGE_NAME.USER_AGENT_REDIRECT);}
     public static String basicCanvasPageUrl(){ return pageOffRoot(PAGE_NAME.CANVAS_BASIC_TEST_PAGE);}
-    public static String complexIframesPageUrl(){ return pageOffRoot(PAGE_NAME.COMPLEX_IFRAMES_TEST_PAGE);}
 
 
 
