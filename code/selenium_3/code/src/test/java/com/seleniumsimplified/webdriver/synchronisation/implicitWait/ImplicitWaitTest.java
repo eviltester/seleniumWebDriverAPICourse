@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.implicitWait;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -22,7 +23,7 @@ public class ImplicitWaitTest {
 
     @Before
     public void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
     }
 
     @Test
@@ -31,7 +32,7 @@ public class ImplicitWaitTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
 

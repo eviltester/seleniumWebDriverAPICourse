@@ -4,10 +4,8 @@ import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ComparisonFailure;
 import org.junit.Test;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -16,7 +14,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertTrue;
 
 public class UserInteractionsCanvasExercisesTest {
 
@@ -36,7 +34,7 @@ public class UserInteractionsCanvasExercisesTest {
         // intermittent, but this is a good example that sometimes
         // extra sync is required, but doesn't impact the speed or readability
         // of the code
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("canvas")));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("keyeventslist")));
 

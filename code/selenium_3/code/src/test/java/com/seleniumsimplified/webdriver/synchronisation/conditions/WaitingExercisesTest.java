@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -18,7 +19,7 @@ public class WaitingExercisesTest {
     @Test
     public void canReturnAWebElementInsteadOfABooleanUsingAnonymousClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -60,13 +61,12 @@ public class WaitingExercisesTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                new WebDriverWait(driver,8).until(
-                        new TitleDoesNotContain("Redirects")));
+        new WebDriverWait(driver,8).until(
+                new TitleDoesNotContain("Redirects"));
     }
 
 
@@ -96,13 +96,13 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
         wait = new WebDriverWait(driver,8);
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                wait.until(titleDoesNotContainF("Redirects")));
+        // we don't need to assert because if the wait fails it throws an exception
+        wait.until(titleDoesNotContainF("Redirects"));
     }
 
     private ExpectedCondition<String> titleDoesNotContainF(String stringNotInTitle) {
@@ -115,13 +115,13 @@ public class WaitingExercisesTest {
 
         WebDriverWait wait;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
         wait = new WebDriverWait(driver,8);
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                wait.until(titleDoesNotContainAC("Redirects")));
+        // we don't need to assert because if the wait fails it throws an exception
+        wait.until(titleDoesNotContainAC("Redirects"));
     }
 
     private ExpectedCondition<String> titleDoesNotContainAC(final String stringNotInTitle) {

@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -21,7 +22,7 @@ public class CustomExpectedConditionsExampleTest {
 
             WebDriver driver;
 
-            driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+            driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
             // select Server
             WebElement categorySelect = driver.findElement(By.id("combo1"));

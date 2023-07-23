@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.refactored;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,7 +21,7 @@ public class MakeYourWaitsReadableTest {
     @Before
     public void setupForTest(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+        driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
         // instantiate your waits at the highest level you can, to reuse in the test
         wait = new WebDriverWait(driver,10);

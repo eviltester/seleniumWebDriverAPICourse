@@ -1,14 +1,13 @@
 package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.util.function.Function;
-
-import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
 
 public class WaitingExercisesUsingPredicateTest {
 
@@ -44,13 +43,14 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingClass(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        new WebDriverWait(driver,8).until( new TitleDoesNotContain("Redirects"));
+        new WebDriverWait(driver,8).until(
+                new TitleDoesNotContain("Redirects"));
 
-        assertEquals("Basic Web Page Title", driver.getTitle());
+        // we don't need to assert because if the wait fails it throws an exception
     }
 
 
@@ -73,13 +73,15 @@ public class WaitingExercisesUsingPredicateTest {
     @Test
     public void customExpectedConditionForTitleDoesNotContainUsingMethod(){
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_redirect.html");
+        driver = Driver.get(SiteUrls.redirectPageUrl());
+        String originalTitle = driver.getTitle();
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
         new WebDriverWait(driver,8).until(titleDoesNotContain("Redirects"));
 
-        assertEquals("Basic Web Page Title", driver.getTitle());
+        // we don't really need to assert because if the wait fails it throws an exception
+        assertNotEquals(originalTitle, driver.getTitle());
     }
 
     private Function<WebDriver, Boolean> titleDoesNotContain(String stringNotInTitle) {

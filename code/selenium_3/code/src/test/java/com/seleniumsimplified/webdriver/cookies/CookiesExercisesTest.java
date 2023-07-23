@@ -162,7 +162,14 @@ public class CookiesExercisesTest {
 
         driver.manage().deleteCookieNamed("seleniumSimplifiedSearchNumVisits");
 
-        String path = "/";
+        // when creating a cookie it is very important to get the path correct
+        // when the site layout changes, this would also have to change
+        // copying a cookie and amending is usually easier
+        String path = "/styled";
+
+        if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
+            path = path + "/"; // need to add a trailing / for firefox only
+        }
 
         driver.manage().addCookie(
                 new Cookie.Builder("seleniumSimplifiedSearchNumVisits",
@@ -180,8 +187,5 @@ public class CookiesExercisesTest {
 
         assertEquals("I should be a very frequent visitor", 403, Integer.parseInt(aCookie.getValue()));
     }
-
-
-
 
 }

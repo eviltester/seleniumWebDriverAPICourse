@@ -1,18 +1,15 @@
 package com.seleniumsimplified.webdriver.synchronisation.fluentWait;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.NotFoundException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertEquals;
 
 public class FluentWaitExampleTest {
@@ -27,7 +24,7 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         // Fluent wait constructor has changed for version 3.12
         // we used to use
@@ -54,7 +51,7 @@ public class FluentWaitExampleTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         // Fluent wait constructor has changed for version 3.12
         // we used to use

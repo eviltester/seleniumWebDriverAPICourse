@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Ignore;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -20,7 +21,7 @@ public class MyFailingWebDriverWaitTest {
 
             WebDriver driver;
 
-            driver = Driver.get("https://testpages.herokuapp.com/basic_ajax.html");
+            driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
             // select Server
             WebElement categorySelect = driver.findElement(By.id("combo1"));

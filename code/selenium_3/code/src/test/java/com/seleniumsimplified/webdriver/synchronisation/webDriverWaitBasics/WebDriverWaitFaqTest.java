@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +17,7 @@ public class WebDriverWaitFaqTest {
 
         WebDriver driver;
 
-        driver = Driver.get("https://testpages.herokuapp.com/basic_html_form.html");
+        driver = Driver.get(SiteUrls.basicHtmlFormPageUrl());
 
         try{
             new WebDriverWait(driver,10).until(

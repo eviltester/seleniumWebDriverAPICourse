@@ -1,9 +1,27 @@
-# selenium WebDriver API Course
+# Selenium WebDriver API Course
 
 The source code and slides for my online training course on Selenium WebDriver.
 
-I didn't have time to maintain and update the course videos so the course was removed from sale in 2019/2020
+The course was originally written for Selenium 2, then updated to Selenium 3.
+
+The course was removed from sale in 2019/2020.
+
+The course videos are available to Patreon supporters:
+
+- [Selenium WebDriver With Java Course](https://www.testerhq.com/member2/index.php?course=selenium_webdriver_3_api&page=coursecontents&preview=true)
+- [Patreon](https://patreon.com/eviltester)
 
 The code and slides material can still add value for self study.
 
-The code was updated to work with Selenium 4 beta versions, haven't checked if it works with the final released version of Selenium 4 yet.
+The code has been updated and works on Selenium 3 and Selenium 4.
+
+The Selenium 4 tests are also running on Chrome headless as a Github Action:
+
+- [execution reports](https://github.com/eviltester/seleniumWebDriverAPICourse/actions/workflows/build.yml)
+
+The application under test is available online at:
+
+- [testpages.herokuapps.com](https://testpages.herokuapp.com/styled/index.html)
+- [source code](https://github.com/eviltester/TestingApp/tree/master/java/testingapps/seleniumtestpages)
+
+

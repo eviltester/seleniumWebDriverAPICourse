@@ -11,6 +11,10 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 import static org.junit.Assert.*;
 
@@ -26,6 +30,14 @@ public class UserInteractionsExercisesTest {
     @Before
     public void resetPage(){
         driver.navigate().refresh();
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("draggable1")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("droppable1")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("draggable2")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("droppable2")));
+
     }
 
     @Test

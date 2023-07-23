@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.synchronisation.fluentWait;
 
 import com.google.common.base.Function;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,7 +26,7 @@ public class FluentWaitExercisesTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
+        driver = Driver.get(SiteUrls.javascriptCountdownPageUrl());
     }
 
 
@@ -34,10 +35,12 @@ public class FluentWaitExercisesTest {
 
         driver.navigate().refresh();
 
-        countdown = driver.findElement(By.id("javascript_countdown_time"));
+        // countdown = driver.findElement(By.id("javascript_countdown_time"));
 
-        new WebDriverWait(driver,10).
-                until(ExpectedConditions.visibilityOf(countdown));
+        // wait for an element to be visible prior to trying to use it
+        countdown = new WebDriverWait(driver,10).
+                until(ExpectedConditions.visibilityOfElementLocated(
+                        By.id("javascript_countdown_time")));
     }
 
     @Test

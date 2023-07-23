@@ -2,6 +2,7 @@ package com.seleniumsimplified.webdriver.synchronisation.conditions;
 
 import com.google.common.base.Function;
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
@@ -19,7 +20,7 @@ public class WebDriverWaitFunctionAndExpectedConditionsExampleTest {
 
     @BeforeClass
     public static void setup(){
-        driver = Driver.get("https://testpages.herokuapp.com/javascript_countdown.html");
+        driver = Driver.get(SiteUrls.javascriptCountdownPageUrl());
     }
 
     @Test

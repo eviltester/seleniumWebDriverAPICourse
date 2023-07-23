@@ -38,11 +38,15 @@ public class FindElementsExercisesTest {
     @Test
     public void assertDivElementsCount(){
 
-        List<WebElement> elements;
-        elements = driver.findElements(
-                By.tagName("div"));
+        // the page format changed when I moved to the styled page
+        // so I have to focus in on the specific divs within and including the wrapper
 
-        assertEquals(19,elements.size());
+        // find the top level elements that wrap the divs, exluding any extra stuff on the page
+        List<WebElement> parentElements = driver.findElements(By.className("specialDiv"));
+        // find only the divs that are wrapped by the specialDiv test markers
+        List<WebElement> divElements = driver.findElements(By.cssSelector("div.specialDiv div"));
+
+        assertEquals(19,parentElements.size() + divElements.size());
     }
 
 
