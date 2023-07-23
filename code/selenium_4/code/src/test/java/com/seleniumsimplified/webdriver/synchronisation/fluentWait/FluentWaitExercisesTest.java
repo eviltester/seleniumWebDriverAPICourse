@@ -35,10 +35,12 @@ public class FluentWaitExercisesTest {
 
         driver.navigate().refresh();
 
-        countdown = driver.findElement(By.id("javascript_countdown_time"));
+        // countdown = driver.findElement(By.id("javascript_countdown_time"));
 
-        new WebDriverWait(driver,Duration.ofSeconds(10)).
-                until(ExpectedConditions.visibilityOf(countdown));
+        // wait for an element to be visible prior to trying to use it
+        countdown = new WebDriverWait(driver,Duration.ofSeconds(10)).
+                until(ExpectedConditions.visibilityOfElementLocated(
+                        By.id("javascript_countdown_time")));
     }
 
     @Test

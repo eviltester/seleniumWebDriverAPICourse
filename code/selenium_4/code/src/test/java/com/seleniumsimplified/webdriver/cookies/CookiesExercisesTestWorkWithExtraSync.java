@@ -120,7 +120,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
             public Cookie apply(WebDriver input) {
                 Cookie cookie = waitForCookieNamed(cookieName);
 
-                // Because ChromeDriver creates cookies with a '.' previxed on the domain
+                // Because ChromeDriver creates cookies with a '.' prefixed on the domain
                 // there may actually be multiple cookies with the same name
                 for(Cookie aCookie : driver.manage().getCookies()){
                     if(aCookie.getName().contentEquals(cookieName)) {
@@ -240,7 +240,7 @@ public class CookiesExercisesTestWorkWithExtraSync {
 
         driver.manage().deleteCookieNamed(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS);
 
-        String path = "/";
+        String path = "/styled";
 
         driver.manage().addCookie(
                 new Cookie.Builder(SELENIUM_SIMPLIFIED_SEARCH_NUM_VISITS,
@@ -270,7 +270,5 @@ public class CookiesExercisesTestWorkWithExtraSync {
         }
         return myCookies;
     }
-
-
 
 }

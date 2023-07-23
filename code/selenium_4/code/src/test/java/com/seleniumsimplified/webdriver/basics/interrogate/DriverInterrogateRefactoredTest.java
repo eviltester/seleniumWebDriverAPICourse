@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.interrogate;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -25,17 +26,14 @@ public class DriverInterrogateRefactoredTest {
     @Test
     public void driverLevelPageInterrogateMethods(){
 
-        final String theTestPageURL =
-                "/basic_web_page.html";
-
-        driver.navigate().to("http://testpages.herokuapp.com" + theTestPageURL);
+        driver.navigate().to(SiteUrls.basicWebPageUrl());
 
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
 
         // changed from and equals assert to an endswith to cope for move from http to https
         // assertThat(driver.getCurrentUrl(), is(theTestPageURL));
         // to
-        assertThat(driver.getCurrentUrl(), endsWith(theTestPageURL));
+        assertThat(driver.getCurrentUrl(), endsWith("basic-web-page-test.html"));
         assertThat(driver.getPageSource(), containsString("A paragraph of text"));
     }
 

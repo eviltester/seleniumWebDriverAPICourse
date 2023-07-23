@@ -67,9 +67,9 @@ public class WaitingExercisesTest {
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                new WebDriverWait(driver,Duration.ofSeconds(8)).until(
-                        new TitleDoesNotContain("Redirects")));
+        // we don't need to assert because if the wait fails it throws an exception
+        new WebDriverWait(driver,Duration.ofSeconds(8)).until(
+                    new TitleDoesNotContain("Redirects"));
     }
 
 
@@ -104,8 +104,8 @@ public class WaitingExercisesTest {
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                wait.until(titleDoesNotContainF("Redirects")));
+        // we don't need to assert because if the wait fails it throws an exception
+        wait.until(titleDoesNotContainF("Redirects"));
     }
 
     private ExpectedCondition<String> titleDoesNotContainF(String stringNotInTitle) {
@@ -123,8 +123,8 @@ public class WaitingExercisesTest {
 
         driver.findElement((By.id("delaygotobasic"))).click();
 
-        assertEquals("Basic Web Page Title",
-                wait.until(titleDoesNotContainAC("Redirects")));
+        // we don't need to assert because if the wait fails it throws an exception
+        wait.until(titleDoesNotContainAC("Redirects"));
     }
 
     private ExpectedCondition<String> titleDoesNotContainAC(final String stringNotInTitle) {

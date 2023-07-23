@@ -1,6 +1,7 @@
 package com.seleniumsimplified.webdriver.basics.navigation;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
+import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -19,9 +20,6 @@ import static org.junit.Assert.assertTrue;
 public class NavigationBasicsTest {
 
     static WebDriver driver;
-    final private String PROTOCOL = "https";
-    final private String DOMAIN = "testpages.herokuapp.com";
-    final private String ROOT_URL = PROTOCOL + "://" + DOMAIN;
 
     @BeforeClass
     public static void createDriver(){
@@ -31,7 +29,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithGet(){
-        driver.get(ROOT_URL + "/styled/index.html");
+        driver.get(SiteUrls.rootUrl());
 
         assertTrue(driver.getTitle().startsWith(
                     "Selenium"));
@@ -39,7 +37,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithNavigateTo(){
-        driver.navigate().to(ROOT_URL + "/search.php");
+        driver.navigate().to(SiteUrls.searchPageUrl());
 
         assertTrue(driver.getTitle().startsWith(
                    "Selenium Simplified Search Engine"));
@@ -47,7 +45,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithNavigateToURL() throws MalformedURLException {
-        URL searchPage = new URL(PROTOCOL,DOMAIN,"/search.php");
+        URL searchPage = new URL(SiteUrls.searchPageUrl());
 
         driver.navigate().to(searchPage);
 
@@ -57,10 +55,12 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithNavigateBackAndForward(){
-        driver.navigate().to(ROOT_URL + "/basic_html_form.html");
+
+        driver.navigate().to(SiteUrls.basicHtmlFormPageUrl());
         assertTrue(driver.getTitle().startsWith("HTML Form Elements"));
 
-        driver.navigate().to(ROOT_URL + "/basic_web_page.html");
+
+        driver.navigate().to(SiteUrls.basicWebPageUrl());
         assertTrue(driver.getTitle().startsWith("Basic Web Page Title"));
 
         driver.navigate().back();
@@ -72,7 +72,7 @@ public class NavigationBasicsTest {
 
     @Test
     public void navigateWithRefresh(){
-        driver.navigate().to(ROOT_URL + "/refresh.php");
+        driver.navigate().to(SiteUrls.refreshPage());
 
         final String refreshTitleConstant = "Refreshed Page on ";
         String pageTitle = driver.getTitle();

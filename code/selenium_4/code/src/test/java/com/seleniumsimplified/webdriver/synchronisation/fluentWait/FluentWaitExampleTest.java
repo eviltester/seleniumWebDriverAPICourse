@@ -1,7 +1,6 @@
 package com.seleniumsimplified.webdriver.synchronisation.fluentWait;
 
 import com.google.common.base.Function;
-import com.google.common.base.Predicate;
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
 import org.junit.Test;
@@ -10,10 +9,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
-
 import static org.junit.Assert.assertEquals;
 
 public class FluentWaitExampleTest {

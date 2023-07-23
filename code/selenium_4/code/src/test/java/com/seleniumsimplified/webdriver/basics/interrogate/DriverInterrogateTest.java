@@ -24,7 +24,10 @@ public class DriverInterrogateTest {
         // Changed this from
         // assertEquals(theTestPageURL, driver.getCurrentUrl());
         // to cope with the pages being served by either http or https
-        assertTrue( driver.getCurrentUrl().endsWith("basic_web_page.html"));
+        // and to cope with different domains and the legacy unstyled pages had this url
+        //assertTrue( driver.getCurrentUrl().endsWith("basic_web_page.html"));
+        // new styled pages have this url
+        assertTrue( driver.getCurrentUrl().endsWith("basic-web-page-test.html"));
 
         String pageSource = driver.getPageSource();
         assertTrue(pageSource.contains("A paragraph of text"));
