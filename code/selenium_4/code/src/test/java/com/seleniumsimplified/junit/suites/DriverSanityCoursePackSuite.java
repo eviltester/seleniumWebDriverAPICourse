@@ -32,7 +32,6 @@ import org.junit.runners.Suite;
         FirefoxDriverTest.class,
         HtmlUnitDriverTest.class,
         MicrosoftEdgeDriverTest.class,
-        IEDriverTest.class,
 
         // screenshots
         Ex1_Answer_CanWeTakeScreenshotsTest.class,
