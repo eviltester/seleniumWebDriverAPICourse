@@ -35,7 +35,7 @@ public class FindByIDOrNameExampleTest {
 
         assertEquals("expected a match on name",
                 "This is b paragraph text",
-                element.getText());
+                element.getText().trim());
     }
 
     @Test
@@ -47,7 +47,7 @@ public class FindByIDOrNameExampleTest {
 
         assertEquals("expected a match on id",
                 "This is c paragraph text",
-                element.getText());
+                element.getText().trim());
     }
 
     @AfterClass

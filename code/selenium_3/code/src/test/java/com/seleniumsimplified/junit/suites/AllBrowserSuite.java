@@ -11,6 +11,7 @@ import com.seleniumsimplified.webdriver.basics.interrogate.findby.*;
 import com.seleniumsimplified.webdriver.basics.manipulate.*;
 import com.seleniumsimplified.webdriver.basics.manipulate.alerts.AlertHandlingExampleTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.alerts.AlertHandlingExercisesTest;
+import com.seleniumsimplified.webdriver.basics.manipulate.alerts.AlertHandlingFAQsTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.frames.*;
 import com.seleniumsimplified.webdriver.basics.manipulate.iframes.*;
 import com.seleniumsimplified.webdriver.basics.manipulate.selectSupport.SelectSupportTest;
@@ -22,10 +23,12 @@ import com.seleniumsimplified.webdriver.cookies.CookiesExercisesTest;
 import com.seleniumsimplified.webdriver.cookies.CookiesExercisesTestWorkWithExtraSync;
 import com.seleniumsimplified.webdriver.datadriven.BasicDataDrivenTest;
 import com.seleniumsimplified.webdriver.datadriven.CsvDataDrivenTest;
+import com.seleniumsimplified.webdriver.drivermanager.DriverManager;
 import com.seleniumsimplified.webdriver.javascript.JavaScriptExecutorTest;
 import com.seleniumsimplified.webdriver.javascript.JavascriptAsyncExecutorTest;
 import com.seleniumsimplified.webdriver.javascript.JavascriptExecuteAsyncExerciseTest;
 import com.seleniumsimplified.webdriver.javascript.JavascriptExecutorExampleTest;
+import com.seleniumsimplified.webdriver.screenshots.ScreenshotCaptureNotWrittenTest;
 import com.seleniumsimplified.webdriver.synchronisation.conditions.*;
 import com.seleniumsimplified.webdriver.synchronisation.fluentWait.FluentWaitExampleTest;
 import com.seleniumsimplified.webdriver.synchronisation.fluentWait.FluentWaitExercisesTest;
@@ -34,13 +37,17 @@ import com.seleniumsimplified.webdriver.synchronisation.fluently.UseWebDriverWai
 import com.seleniumsimplified.webdriver.synchronisation.implicitWait.ImplicitWaitTest;
 import com.seleniumsimplified.webdriver.synchronisation.refactored.MakeYourWaitsReadableTest;
 import com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics.*;
+import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsCanvasExercisesTest;
+import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsExamplesClickDONOTUSETest;
 import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsExercisesTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
- * Tests which should run, and pass, across any of the non-headless browsers without amendment
+ * Tests which should run, and pass, across any of the browsers (including headless) without amendment
  * ]
+ * (this statement does not always happen, this is an aspirational suite)
+ *
  * mvn test -Dtest=AllBrowserSuite -Dselenium2basics.webdriver=<insertbrowserhere>
  *
  * 20160728 Status - WebDriver 2.53.1
@@ -64,6 +71,9 @@ import org.junit.runners.Suite;
         JUnitExercisesTest.class,
 
         // Basics Driver all use Firefox - see DriverSanityCoursePackSuite
+        // FirstFirefoxTest.class
+        // FirstTest.class
+        // FundamentalWhatHappensIfTest.class
 
         // Interrogate FindBy
         AFirstFindByExampleTest.class,
@@ -89,23 +99,30 @@ import org.junit.runners.Suite;
         // manipulate alerts
         AlertHandlingExampleTest.class,
         AlertHandlingExercisesTest.class,
+        AlertHandlingFAQsTest.class,
 
         // Manipulate Frames
+        FrameExercisesAnswersTest.class,
+        FrameExercisesTest.class,
         FrameFaqTest.class,
         FramesExampleTest.class,
-        FrameExercisesTest.class,
-        FrameExercisesAnswersTest.class,
 
+        IFrameExercisesAnswersTest.class,
+        IFrameExercisesTest.class,
         IFrameFaqTest.class,
         IFramesExampleTest.class,
-        IFrameExercisesTest.class,
-        IFrameExercisesAnswersTest.class,
 
         // Manipulate select Support
         SelectSupportTest.class,
 
         // manipulate windows
-
+        ManageWindowsExampleTest.class,
+        ManageWindowsExerciseAnswerTest.class,
+        ManageWindowsExerciseTest.class,
+        WindowsExampleTest.class,
+        WindowsExerciseAnswersTest.class,
+        WindowsExerciseTest.class,
+        WindowsFAQTest.class,
 
         // Manipulate
         ManipulateExampleSelectDropDownFiveTest.class,
@@ -134,6 +151,16 @@ import org.junit.runners.Suite;
         CsvDataDrivenTest.class,
 
         // drivermanger in DriverSanityCoursePack
+        // These are driver specific tests so require different setup
+        // DriverManagerTest.class,
+
+        // also the drivers package have unique driver tests
+        // /onpath/ChromeDriverPathTest.class,
+        // ChromeDriverHeadlessTest.class.
+        // ChromeDriverTest.class,
+        // FirefoxDriverTest.class,
+        // HtmlUnitDriverTest.class,
+        // MicrosoftEdgeDriverTest.class,
 
         // Javascript
 
@@ -155,6 +182,8 @@ import org.junit.runners.Suite;
         // remote in its own suite
 
         // screenshots in DriverSanityCoursePack
+        ScreenshotCaptureNotWrittenTest.class,
+        // all the other screenshot tests write files hence not for CI
 
         //Synchronisation  conditions
         CustomExpectedConditionsExampleTest.class,
@@ -186,6 +215,9 @@ import org.junit.runners.Suite;
 
         //userinteractions
         UserInteractionsExercisesTest.class,
+        UserInteractionsCanvasExercisesTest.class,
+        // this test is filled with experiments
+        //UserInteractionsExamplesClickDONOTUSETest.class,
 })
 public class AllBrowserSuite {
 }

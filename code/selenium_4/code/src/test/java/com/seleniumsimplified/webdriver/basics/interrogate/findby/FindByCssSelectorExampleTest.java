@@ -32,7 +32,7 @@ public class FindByCssSelectorExampleTest {
 
         assertEquals("expected a match on id",
                 "This is c paragraph text",
-                element.getText());
+                element.getText().trim()); // trim needed for safari
     }
 
     @Test

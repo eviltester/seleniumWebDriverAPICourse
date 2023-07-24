@@ -8,12 +8,12 @@ import org.junit.Test;
 import org.openqa.selenium.*;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class GetTitleReplacementExerciseTest {
 
     static WebDriver driver;
-    private final String pageTitle = "Welcome to the Find By Playground";
+    private final String expectedPageTitle = "Welcome to the Find By Playground";
 
     /*
     Warning : WebDriver has changed, so getText on title no longer works.
@@ -44,7 +44,7 @@ public class GetTitleReplacementExerciseTest {
     @Test
     public void driverGetTitleSanity(){
 
-        assertThat(pageTitle, is(driver.getTitle()));
+        assertThat(driver.getTitle(), is(expectedPageTitle));
     }
 
     @Test
@@ -56,7 +56,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle, is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"), is(expectedPageTitle));
     }
 
     @Test
@@ -68,7 +68,7 @@ public class GetTitleReplacementExerciseTest {
         int titleEnd = driver.getPageSource().toLowerCase().indexOf("</title>");
         String titleText = driver.getPageSource().substring(titleStart+7, titleEnd);
 
-        assertThat(pageTitle, is(titleText));
+        assertThat(titleText.trim(), is(expectedPageTitle));
     }
 
     @Test
@@ -80,7 +80,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
     @Test
@@ -92,7 +92,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
     @Test
@@ -104,7 +104,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
     @Test
@@ -117,7 +117,7 @@ public class GetTitleReplacementExerciseTest {
         // use JavaScript to get the text of the element
         String titleTextViaJavaScript = (String) ((JavascriptExecutor)driver).executeScript("return arguments[0].innerHTML",element);
 
-        assertThat(pageTitle,is(titleTextViaJavaScript));
+        assertThat(titleTextViaJavaScript,is(expectedPageTitle));
     }
 
     @Test
@@ -129,7 +129,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
     @Test
@@ -141,7 +141,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
     @Test
@@ -153,7 +153,7 @@ public class GetTitleReplacementExerciseTest {
 
         // getTextNow returns "" for head elements
         //assertThat(pageTitle, is(element.getText()));
-        assertThat(pageTitle,is(element.getAttribute("text")));
+        assertThat(element.getAttribute("text"),is(expectedPageTitle));
     }
 
 

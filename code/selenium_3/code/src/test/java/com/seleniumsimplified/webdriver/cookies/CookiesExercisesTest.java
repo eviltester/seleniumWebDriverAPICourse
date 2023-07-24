@@ -167,10 +167,6 @@ public class CookiesExercisesTest {
         // copying a cookie and amending is usually easier
         String path = "/styled";
 
-        if(Driver.currentBrowser() == Driver.BrowserName.FIREFOX || Driver.currentBrowser() == Driver.BrowserName.FIREFOXMARIONETTE){
-            path = path + "/"; // need to add a trailing / for firefox only
-        }
-
         driver.manage().addCookie(
                 new Cookie.Builder("seleniumSimplifiedSearchNumVisits",
                         String.valueOf(402)).

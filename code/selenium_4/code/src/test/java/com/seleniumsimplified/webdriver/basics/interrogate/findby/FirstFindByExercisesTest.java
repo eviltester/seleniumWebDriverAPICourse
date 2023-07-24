@@ -55,7 +55,7 @@ public class FirstFindByExercisesTest {
         WebElement cParagraph = driver.findElement(
                                             By.id("p3"));
 
-        assertEquals("This is c paragraph text", cParagraph.getText());
+        assertEquals("This is c paragraph text", cParagraph.getText().trim());
     }
 
     @Test
@@ -73,7 +73,7 @@ public class FirstFindByExercisesTest {
         WebElement aParagraph = driver.findElement(
                                         By.name("pName1"));
 
-        assertEquals("This is a paragraph text", aParagraph.getText());
+        assertEquals("This is a paragraph text", aParagraph.getText().trim());
     }
 
     @Test
@@ -83,7 +83,7 @@ public class FirstFindByExercisesTest {
         // match beginning of text
         WebElement jump_to = driver.findElement(
                                     By.partialLinkText("jump to"));
-        assertEquals("jump to para 0", jump_to.getText());
+        assertEquals("jump to para 0", jump_to.getText().trim());
 
         // match middle of text
         jump_to = null;

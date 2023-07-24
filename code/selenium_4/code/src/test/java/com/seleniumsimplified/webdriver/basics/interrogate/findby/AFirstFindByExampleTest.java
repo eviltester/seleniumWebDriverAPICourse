@@ -26,7 +26,7 @@ public class AFirstFindByExampleTest {
     public void findByID(){
         WebElement cParagraph = driver.findElement(By.id("p3"));
         assertEquals("This is c paragraph text",
-                     cParagraph.getText());
+                     cParagraph.getText().trim()); //trim needed for safari
     }
 
     @AfterClass

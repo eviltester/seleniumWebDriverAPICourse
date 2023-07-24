@@ -1,14 +1,18 @@
 package com.seleniumsimplified.webdriver.manager;
 
+import org.htmlunit.BrowserVersion;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.UnsupportedCommandException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
+import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
+import org.openqa.selenium.safari.SafariDriver;
 
 import java.io.File;
 import java.net.MalformedURLException;
@@ -49,8 +53,9 @@ public class Driver extends Thread{
     //private static final  String DEFAULT_BROWSER = "SAFARI";
     private static final  String DEFAULT_BROWSER = "GOOGLECHROME";
     //private static final  String DEFAULT_BROWSER = "HTMLUNIT";
+    //private static final  String DEFAULT_BROWSER = "EDGE";
 
-    public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, FIREFOXPORTABLE, FIREFOXMARIONETTE, APPIUM, EDGE, SAFARI}
+    public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, APPIUM, EDGE, SAFARI}
 
     public static BrowserName currentDriver;
 
@@ -100,24 +105,11 @@ public class Driver extends Thread{
             if("FIREFOX".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.FIREFOX;
 
-            if("FIREFOXPORTABLE".contentEquals(defaultBrowser))
-                useThisDriver = BrowserName.FIREFOXPORTABLE;
-
-            // Firefox is for the inbuilt plugin driver, marionette is the newer .exe driver
-            // see the
-            // package com.seleniumsimplified.webdriver.drivers;
-            //  FirefoxMarionetteDriverTest.java for more details
-            if("FIREFOXMARIONETTE".contentEquals(defaultBrowser))
-                useThisDriver = BrowserName.FIREFOXMARIONETTE;
-
             if("CHROME".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.GOOGLECHROME;
 
             if("GOOGLECHROME".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.GOOGLECHROME;
-
-            if("IE".contentEquals(defaultBrowser))
-                useThisDriver = BrowserName.IE;
 
             if("EDGE".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.EDGE;
@@ -183,64 +175,21 @@ public class Driver extends Thread{
             // see the \docs\firefox47.pdf for a discussion on why we have Firefox and FirefoxPortable etc.
             switch (useThisDriver) {
                 case FIREFOX:
-//                    FirefoxProfile profile = new FirefoxProfile();
-//
-//                    // not available in Webdriver 3.12.0
-//                    //profile.setEnableNativeEvents(true);
-//
-//                    /** Webdriver 3 **/
-//                    /*
-//                        To use legacy Firefox driver we can set capability for Marionette to be false
-//                        and it will use the legacy firefox driver
-//
-//                        FirefoxDriver.MARIONETTE == "marionette"
-//                     */
-//                    //DesiredCapabilities legacyCapabilities = DesiredCapabilities.firefox();
-//                    //legacyCapabilities.setCapability("marionette", false);
-//
-//                    // capabilities removed in Selenium 4
-//
-//                    aDriver = new FirefoxDriver();//profile);
-//
-//                    /*
-//                     NOTE: 20160729 this property doesn't seem to be honoured in the code yet
-//                     so use the capability above.
-//
-//                     or I can run the test with a property
-//
-//                    -Dwebdriver.firefox.marionette=false
-//
-//                      I could set that in code with
-//                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "false");
-//                     */
-//
-//                    //
-//
-//                    currentDriver = BrowserName.FIREFOX;
+                    aDriver = new FirefoxDriver();
+                    currentDriver = BrowserName.FIREFOX;
                     break;
 
                 case HTMLUNIT:
 
                     // HtmlUnitDriver added as a maven dependency - no paths required
-                    aDriver = new HtmlUnitDriver(true);  // enable javascript
+                    aDriver = new HtmlUnitDriver(BrowserVersion.BEST_SUPPORTED, true);  // enable javascript
                     currentDriver = BrowserName.HTMLUNIT;
-                    break;
-
-                case IE:
-
-//                    setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_32/IEDriverServer.exe", "C://webdrivers/iedriver_32/IEDriverServer.exe");
-//                    //setDriverPropertyIfNecessary("webdriver.ie.driver", "/../tools/iedriver_64/IEDriverServer.exe", "C://webdrivers/iedriver_64/IEDriverServer.exe");
-//
-//                    aDriver = new InternetExplorerDriver();
-//                    currentDriver = BrowserName.IE;
                     break;
 
                 case EDGE:
 
-//                    setDriverPropertyIfNecessary("webdriver.edge.driver", "/../tools/edgedriver/MicrosoftWebDriver.exe", "C://webdrivers/edgedriver/MicrosoftWebDriver.exe");
-//
-//                    aDriver = new EdgeDriver();
-//                    currentDriver = BrowserName.EDGE;
+                    aDriver = new EdgeDriver();
+                    currentDriver = BrowserName.EDGE;
                     break;
 
                 case GOOGLECHROME:
@@ -342,8 +291,8 @@ public class Driver extends Thread{
                     break;
 
                 case SAFARI:
-//                    aDriver = new SafariDriver();
-//                    currentDriver = BrowserName.SAFARI;
+                    aDriver = new SafariDriver();
+                    currentDriver = BrowserName.SAFARI;
                     break;
             }
 

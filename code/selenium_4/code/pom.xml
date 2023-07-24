@@ -157,9 +157,13 @@ We use
         <!-- need to bring in the htmlunit driver on its own -->
         <!-- https://github.com/SeleniumHQ/selenium/blob/master/java/CHANGELOG -->
         <!-- htmlunit driver is maintaining version numbering compatibility with webdriver -->
+        <!--
+            htmlunit3-driver uses the (latest) version of HtmlUnit 3.x and is therefore not backward compatible.
+            htmlunit-driver is backward compatible but it still is based on HtmlUnit 2.70.
+        -->
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
-            <artifactId>htmlunit-driver</artifactId>
+            <artifactId>htmlunit3-driver</artifactId>
             <version>${webdriver.version}</version>
         </dependency>
 

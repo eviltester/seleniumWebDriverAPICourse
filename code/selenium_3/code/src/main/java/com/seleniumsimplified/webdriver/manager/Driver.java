@@ -54,8 +54,9 @@ public class Driver extends Thread{
     //private static final  String DEFAULT_BROWSER = "SAFARI";
     private static final  String DEFAULT_BROWSER = "GOOGLECHROME";
     //private static final  String DEFAULT_BROWSER = "HTMLUNIT";
+    //private static final  String DEFAULT_BROWSER = "EDGE";
 
-    public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, FIREFOXPORTABLE, FIREFOXMARIONETTE, APPIUM, EDGE, SAFARI}
+    public enum BrowserName{FIREFOX, GOOGLECHROME, SAUCELABS, IE, HTMLUNIT, GRID, FIREFOXMARIONETTE, APPIUM, EDGE, SAFARI}
 
     public static BrowserName currentDriver;
 
@@ -104,16 +105,6 @@ public class Driver extends Thread{
              */
             if("FIREFOX".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.FIREFOX;
-
-            if("FIREFOXPORTABLE".contentEquals(defaultBrowser))
-                useThisDriver = BrowserName.FIREFOXPORTABLE;
-
-            // Firefox is for the inbuilt plugin driver, marionette is the newer .exe driver
-            // see the
-            // package com.seleniumsimplified.webdriver.drivers;
-            //  FirefoxMarionetteDriverTest.java for more details
-            if("FIREFOXMARIONETTE".contentEquals(defaultBrowser))
-                useThisDriver = BrowserName.FIREFOXMARIONETTE;
 
             if("CHROME".contentEquals(defaultBrowser))
                 useThisDriver = BrowserName.GOOGLECHROME;
@@ -188,35 +179,8 @@ public class Driver extends Thread{
             // see the \docs\firefox47.pdf for a discussion on why we have Firefox and FirefoxPortable etc.
             switch (useThisDriver) {
                 case FIREFOX:
-                    FirefoxProfile profile = new FirefoxProfile();
 
-                    // not available in Webdriver 3.12.0
-                    //profile.setEnableNativeEvents(true);
-
-                    /** Webdriver 3 **/
-                    /*
-                        To use legacy Firefox driver we can set capability for Marionette to be false
-                        and it will use the legacy firefox driver
-
-                        FirefoxDriver.MARIONETTE == "marionette"
-                     */
-                    DesiredCapabilities legacyCapabilities = DesiredCapabilities.firefox();
-                    //legacyCapabilities.setCapability("marionette", false);
-                    aDriver = new FirefoxDriver(legacyCapabilities);//profile);
-
-                    /*
-                     NOTE: 20160729 this property doesn't seem to be honoured in the code yet
-                     so use the capability above.
-
-                     or I can run the test with a property
-
-                    -Dwebdriver.firefox.marionette=false
-
-                      I could set that in code with
-                        System.setProperty(FirefoxDriver.SystemProperty.DRIVER_USE_MARIONETTE, "false");
-                     */
-
-                    //
+                    aDriver = new FirefoxDriver();
 
                     currentDriver = BrowserName.FIREFOX;
                     break;

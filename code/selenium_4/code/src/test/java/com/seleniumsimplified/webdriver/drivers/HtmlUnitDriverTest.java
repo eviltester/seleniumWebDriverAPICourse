@@ -1,9 +1,9 @@
 package com.seleniumsimplified.webdriver.drivers;
 
-import com.gargoylesoftware.htmlunit.BrowserVersion;
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.manager.ProxyPort;
 import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
+import org.htmlunit.BrowserVersion;
 import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
@@ -11,7 +11,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import static org.hamcrest.core.Is.is;
-import static org.junit.Assert.assertThat;
+import static org.hamcrest.MatcherAssert.assertThat;
 
 public class HtmlUnitDriverTest {
 

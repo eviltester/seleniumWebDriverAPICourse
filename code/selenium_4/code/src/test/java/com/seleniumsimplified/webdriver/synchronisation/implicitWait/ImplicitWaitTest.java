@@ -35,7 +35,7 @@ public class ImplicitWaitTest {
 
         driver = Driver.get(SiteUrls.basicAjaxPageUrl());
 
-        driver.manage().timeouts().implicitlyWait(10,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         // select Server
         WebElement categorySelect = driver.findElement(By.id("combo1"));
@@ -62,7 +62,7 @@ public class ImplicitWaitTest {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         // wait for 0 seconds implicitly
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
         WebElement checkbox1Result;
         WebElement checkbox3Result=null;
@@ -110,7 +110,7 @@ public class ImplicitWaitTest {
         new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.titleIs("Processed Form Details"));
 
         // wait for 10 seconds implicitly
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         WebElement checkbox1Result=null;
         WebElement checkbox3Result=null;
@@ -143,7 +143,7 @@ public class ImplicitWaitTest {
         System.out.println("Time to not find an element " + totalTimeToNotFindElement);
 
         // wait for 0 seconds implicitly by default
-        driver.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
 
         assertTrue("expected slower time to not find element",
                 totalTimeToNotFindElement > totalTimeToFindElement);
@@ -179,7 +179,7 @@ public class ImplicitWaitTest {
 
     @After
     public void resetImplicitWait(){
-        driver.manage().timeouts().implicitlyWait(0,TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(0));
     }
 
 }

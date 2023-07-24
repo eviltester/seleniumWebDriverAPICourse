@@ -9,6 +9,7 @@ import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.core.Is.is;
 import static org.hamcrest.core.IsNot.not;
 import static org.hamcrest.core.IsNull.nullValue;
+import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.Assert.*;
 
 
@@ -84,18 +85,9 @@ public class JUnitExercisesTest {
         //assertThat uses Hamcrest Matchers
         assertThat("The Answer", is(not("An Answer")));
         assertThat("The Answer", is(not(nullValue())));
-
-        // JUnit had some custom matchers in 4.10, in 4.11 they have been moved to Hamcrest
-        // in 4.10 they were in "import static org.junit.matchers.JUnitMatchers.both;"
-        // now they are
-        //      import static org.hamcrest.Matchers.both;
-        //      import static org.hamcrest.Matchers.containsString;
-        // Note: This line below does not work if you are using Java 1.6
-        //       I suggest that if you are using Java 1.6 that you comment it out or delete the line
-        // e.g. //assertThat("The Answer", both(containsString("The")).and(containsString("Answer")));
-        //       It works in Java 1.7
-        //       if you can, I suggest upgrading to Java 1.7
-        //       This is an optional exercise, and is hamcrest related so I don't worry about it.
-        assertThat("The Answer", both(containsString("The")).and(containsString("Answer")));
+        assertThat("The Answer",
+                both(containsString("The")).
+                and(containsString("Answer"))
+        );
     }
 }
