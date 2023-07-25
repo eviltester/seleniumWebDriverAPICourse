@@ -50,6 +50,15 @@ import org.junit.runners.Suite;
  *
  * mvn test -Dtest=AllBrowserSuite -Dselenium2basics.webdriver=<insertbrowserhere>
  *
+ * * 20230725 Status - WebDriver 4.xxx
+ *  * - ChromeDriver v 114.0.5735.90 && Chrome Version 115.0.5790.102 - all tests passed
+ *  * - Edge 115.0.1901.183 - basically Chrome so no surprise that - all tests passed
+ *  * - GeckoDriver 0.33.0 && Firefox 115.0.2 - async executor fails (on the javascript injection)
+ *
+ *
+ *  * - HTMLUnitDriver v 2.36.0 - 13 tests failed
+ *  *    - see HTMLUnitSuite and FailOnHTMLUnitSuite for more details
+
  * 20160728 Status - WebDriver 2.53.1
  * - FirefoxDriver && Firefox 47.0.1 - all tests passed
  * - ChromeDriver v2.22.397933 && Chrome Version 52.0.2743.82 m - all tests passed

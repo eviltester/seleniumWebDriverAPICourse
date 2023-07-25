@@ -3,8 +3,11 @@ package com.seleniumsimplified.junit.suites;
 import com.seleniumsimplified.webdriver.basics.manipulate.ManipulateExampleSelectDropDownFiveTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.SendKeysExamplesTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.alerts.AlertHandlingExercisesTest;
+import com.seleniumsimplified.webdriver.basics.manipulate.alerts.AlertHandlingFAQsTest;
 import com.seleniumsimplified.webdriver.screenshots.Ex2_Answer_PersistScreenshotsTest;
+import com.seleniumsimplified.webdriver.screenshots.ScreenshotCaptureNotWrittenTest;
 import com.seleniumsimplified.webdriver.screenshots.ScreenshotsExampleTest;
+import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsCanvasExercisesTest;
 import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsExercisesTest;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
@@ -31,6 +34,7 @@ import org.junit.runners.Suite;
         // manipulate alerts
         // HTMLUnit does not do confirm dialog handling fully
         AlertHandlingExercisesTest.class,
+        AlertHandlingFAQsTest.class,
 
         // Manipulate Frames
 
@@ -63,8 +67,7 @@ import org.junit.runners.Suite;
         // screenshots in DriverSanityCoursePack
 
         // HTML Unit does support screenshots
-        Ex2_Answer_PersistScreenshotsTest.class,
-        ScreenshotsExampleTest.class,
+        ScreenshotCaptureNotWrittenTest.class,
 
         //Synchronisation  conditions
 
@@ -80,7 +83,8 @@ import org.junit.runners.Suite;
 
         //userinteractions
         // HTML Unit does not do all mouse and user interaction
-         UserInteractionsExercisesTest.class,
+        UserInteractionsExercisesTest.class,
+        UserInteractionsCanvasExercisesTest.class
 })
 public class FailOnHTMLUnitSuite {
 }

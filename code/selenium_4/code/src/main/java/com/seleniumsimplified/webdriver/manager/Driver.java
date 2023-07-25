@@ -49,7 +49,7 @@ public class Driver extends Thread{
         19th October 2016
      */
 
-    //private static final  String DEFAULT_BROWSER = "FIREFOX";
+//    private static final  String DEFAULT_BROWSER = "FIREFOX";
     //private static final  String DEFAULT_BROWSER = "SAFARI";
     private static final  String DEFAULT_BROWSER = "GOOGLECHROME";
     //private static final  String DEFAULT_BROWSER = "HTMLUNIT";

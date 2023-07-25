@@ -36,7 +36,7 @@ public class UserInteractionsCanvasExercisesTest {
         // of the code
         WebDriverWait wait = new WebDriverWait(driver, 10);
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("canvas")));
-        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("keyeventslist")));
+        wait.until(ExpectedConditions.presenceOfElementLocated(By.id("draweventslist")));
 
         // Appium does not support ExpectedConditions.elementToBeClickable @20160608
         // So after checking that the elements are present, we will assume we are synchronised
@@ -45,7 +45,7 @@ public class UserInteractionsCanvasExercisesTest {
         }
 
         wait.until(ExpectedConditions.elementToBeClickable(By.id("canvas")));
-        wait.until(ExpectedConditions.elementToBeClickable(By.id("keyeventslist")));
+        wait.until(ExpectedConditions.elementToBeClickable(By.id("draweventslist")));
 
         // user interactions can be intermittent
         // so click on the html to force focus to the page
@@ -58,7 +58,7 @@ public class UserInteractionsCanvasExercisesTest {
     @Test
     public void drawSomethingOnCanvas(){
         WebElement canvas = driver.findElement(By.id("canvas"));
-        WebElement eventList = driver.findElement(By.id("keyeventslist"));
+        WebElement eventList = driver.findElement(By.id("draweventslist"));
 
         int eventCount = eventList.findElements(By.tagName("li")).size();
 

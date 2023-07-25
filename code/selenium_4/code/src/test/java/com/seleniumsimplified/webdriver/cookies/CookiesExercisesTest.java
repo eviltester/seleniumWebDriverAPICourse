@@ -92,12 +92,28 @@ public class CookiesExercisesTest {
                         Integer.parseInt(aCookie.getValue()));
 
         // clone cookie and set value to what I want
-        Cookie aNewCookie = new Cookie( aCookie.getName(),
-                String.valueOf(42),
-                aCookie.getDomain(),
-                aCookie.getPath(),
-                aCookie.getExpiry(),
-                aCookie.isSecure());
+        Cookie aNewCookie;
+
+        if(!SiteUrls.domain().contains(".")){
+
+            aNewCookie = new Cookie( aCookie.getName(),
+                    String.valueOf(42),
+                    // geckodriver does not like localhost as domain for cookies
+                    // https://github.com/mozilla/geckodriver/issues/1579
+                    //aCookie.getDomain(),
+                    null,
+                    aCookie.getPath(),
+                    aCookie.getExpiry(),
+                    aCookie.isSecure());
+        }
+        else {
+            aNewCookie = new Cookie( aCookie.getName(),
+                    String.valueOf(42),
+                    aCookie.getDomain(),
+                    aCookie.getPath(),
+                    aCookie.getExpiry(),
+                    aCookie.isSecure());
+        }
 
         driver.manage().deleteCookie(aCookie);
         driver.manage().addCookie(aNewCookie);
@@ -125,12 +141,24 @@ public class CookiesExercisesTest {
         assertEquals("Should be my first visit", 1, Integer.parseInt(aCookie.getValue()));
 
         // clone cookie and set value to what I want
-        Cookie aNewCookie = new Cookie.Builder( aCookie.getName(), String.valueOf(29))
-                                    .domain(aCookie.getDomain())
-                                    .path( aCookie.getPath())
-                                    .expiresOn(aCookie.getExpiry())
-                                    .isSecure(aCookie.isSecure()).build();
+        Cookie aNewCookie;
 
+        if(!SiteUrls.domain().contains(".")){
+            aNewCookie = new Cookie.Builder(aCookie.getName(), String.valueOf(29))
+                    // geckodriver does not like localhost as domain for cookies
+                    // https://github.com/mozilla/geckodriver/issues/1579
+                    //.domain(aCookie.getDomain())
+                    .path(aCookie.getPath())
+                    .expiresOn(aCookie.getExpiry())
+                    .isSecure(aCookie.isSecure()).build();
+        }
+        else {
+            aNewCookie = new Cookie.Builder(aCookie.getName(), String.valueOf(29))
+                    .domain(aCookie.getDomain())
+                    .path(aCookie.getPath())
+                    .expiresOn(aCookie.getExpiry())
+                    .isSecure(aCookie.isSecure()).build();
+        }
 
         driver.manage().deleteCookie(aCookie);
         driver.manage().addCookie(aNewCookie);

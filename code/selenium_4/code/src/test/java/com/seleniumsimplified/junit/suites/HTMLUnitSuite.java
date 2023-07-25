@@ -33,6 +33,7 @@ import com.seleniumsimplified.webdriver.synchronisation.fluently.UseWebDriverWai
 import com.seleniumsimplified.webdriver.synchronisation.implicitWait.ImplicitWaitTest;
 import com.seleniumsimplified.webdriver.synchronisation.refactored.MakeYourWaitsReadableTest;
 import com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics.*;
+import org.htmlunit.corejs.javascript.tools.shell.Environment;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 

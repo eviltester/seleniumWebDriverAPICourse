@@ -6,6 +6,10 @@ import org.junit.*;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchWindowException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class WindowsFAQTest {
 
@@ -49,12 +53,30 @@ public class WindowsFAQTest {
 
         driver.findElement(By.id("gobasicajax")).click();
 
-        // remember to switch to window
-        driver.switchTo().window("basicajax");
+
+
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.
+                        numberOfWindowsToBe(2)
+        );
+
         final String handle2 = driver.getWindowHandle();
+
+        // ensure on first window
+        driver.switchTo().window(handle1);
+
+        // remember to switch to window
+        // using handle because it is more reliable
+        // than using the name
+        driver.switchTo().window(handle2);
 
         // close last opened window
         driver.close();
+
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.
+                        numberOfWindowsToBe(1)
+        );
 
         Assert.assertEquals("one window is open",
                 1, driver.getWindowHandles().size());

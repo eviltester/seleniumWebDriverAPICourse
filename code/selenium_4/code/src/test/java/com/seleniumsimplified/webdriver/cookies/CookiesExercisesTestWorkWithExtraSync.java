@@ -154,12 +154,27 @@ public class CookiesExercisesTestWorkWithExtraSync {
         // clone cookie and set value to what I want
         Cookie aNewCookie = null;
 
+        if(!SiteUrls.domain().contains(".")){
+
+            aNewCookie = new Cookie( aCookie.getName(),
+                    String.valueOf(42),
+                    // geckodriver does not like localhost as domain for cookies
+                    // https://github.com/mozilla/geckodriver/issues/1579
+                    //aCookie.getDomain(),
+                    null,
+                    aCookie.getPath(),
+                    aCookie.getExpiry(),
+                    aCookie.isSecure());
+        }
+        else {
             aNewCookie = new Cookie( aCookie.getName(),
                     String.valueOf(42),
                     aCookie.getDomain(),
                     aCookie.getPath(),
                     aCookie.getExpiry(),
                     aCookie.isSecure());
+        }
+
 
         int cookieCount = seleniumSimplifiedCookies().size();
         driver.manage().deleteCookie(aCookie);
@@ -198,11 +213,22 @@ public class CookiesExercisesTestWorkWithExtraSync {
         Cookie aNewCookie = null;
         // clone cookie and set value to what I want
 
-            aNewCookie = new Cookie.Builder( aCookie.getName(), String.valueOf(29))
-                    .domain(aCookie.getDomain())
-                    .path( aCookie.getPath())
+        if(!SiteUrls.domain().contains(".")){
+            aNewCookie = new Cookie.Builder(aCookie.getName(), String.valueOf(29))
+                    // geckodriver does not like localhost as domain for cookies
+                    // https://github.com/mozilla/geckodriver/issues/1579
+                    //.domain(aCookie.getDomain())
+                    .path(aCookie.getPath())
                     .expiresOn(aCookie.getExpiry())
                     .isSecure(aCookie.isSecure()).build();
+        }
+        else {
+            aNewCookie = new Cookie.Builder(aCookie.getName(), String.valueOf(29))
+                    .domain(aCookie.getDomain())
+                    .path(aCookie.getPath())
+                    .expiresOn(aCookie.getExpiry())
+                    .isSecure(aCookie.isSecure()).build();
+        }
 
 
         int cookieCount = seleniumSimplifiedCookies().size();

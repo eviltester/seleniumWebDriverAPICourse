@@ -11,7 +11,8 @@ public class SiteUrls {
      */
 
     // TODO: configure this via env variables or config
-//    public static String domain(){ return "localhost:5000"; }
+//    public static String domain(){ return "localhost:4567"; }
+////    public static String domain(){ return "localhost:5000"; }
 //    public static String protocol(){ return "http"; }
 //    public static String rootUrl(){ return protocol() + "://" + domain(); }
 

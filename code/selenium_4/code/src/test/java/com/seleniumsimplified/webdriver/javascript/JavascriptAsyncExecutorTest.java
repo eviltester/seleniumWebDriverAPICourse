@@ -52,6 +52,7 @@ public class JavascriptAsyncExecutorTest {
                 "var _oldhide = hideSpinner;" +
                 "hideSpinner = function() {" +
                 "    _oldhide();" +
+                "  console.log('injected script run');" +
                 "    window.webdrivercallback.apply();" +
                 "};"
         );

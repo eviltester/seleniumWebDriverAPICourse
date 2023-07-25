@@ -2,10 +2,16 @@ package com.seleniumsimplified.webdriver.basics.manipulate.windows;
 
 import com.seleniumsimplified.webdriver.manager.Driver;
 import com.seleniumsimplified.webdriver.siteabstractions.SiteUrls;
+import com.seleniumsimplified.webdriver.synchronisation.conditions.CustomExpectedConditionsExampleTest;
 import org.junit.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
 import java.util.Set;
 
 import static org.junit.Assert.assertEquals;
@@ -53,6 +59,12 @@ public class WindowsExampleTest {
 
         driver.findElement(By.id("gobasicajax")).click();
 
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.
+                        numberOfWindowsToBe(2)
+        );
+
+        // ensure on current window
         driver.switchTo().window(currentHandle);
 
         // then switch to new window
@@ -69,6 +81,13 @@ public class WindowsExampleTest {
 
         driver.findElement(By.id("gobasicajax")).click();
 
+        new WebDriverWait(driver, Duration.ofSeconds(10)).until(
+                ExpectedConditions.numberOfWindowsToBe(2)
+        );
+
+        // ensure on first window
+        driver.switchTo().window(currentHandle);
+
         // get handle of new window
         Set<String> myWindows = driver.getWindowHandles();
         String newWindowHandle="";
@@ -84,6 +103,7 @@ public class WindowsExampleTest {
         Assert.assertEquals("Test Page For Basic Ajax Example",
                 driver.getTitle());
     }
+
 
     @After
     public void closeDriver(){

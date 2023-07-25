@@ -31,7 +31,13 @@ public class SendKeysExamplesTest {
                 = driver.findElement(By.name("comments"));
         commentTextArea.clear();
 
-        commentTextArea.sendKeys(Keys.chord(Keys.SHIFT, "bob", Keys.NULL, " Dobbs"));
+        // Chrome will accept the full chord
+        // Keys.chord(Keys.SHIFT, "bob", Keys.NULL, " Dobbs")
+        // and create BOB Dobbs
+        // but on Firefox this results in BOB DOBBS
+        // so split into two chords, one for each value
+        commentTextArea.sendKeys(Keys.chord(Keys.SHIFT, "bob", Keys.NULL));
+        commentTextArea.sendKeys(Keys.chord(" Dobbs"));
 
         clickSubmitButton();
 
