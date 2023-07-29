@@ -1,4 +1,4 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.webdriver.basics.manipulate.SendKeysExamplesTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.windows.WindowsExampleTest;
@@ -7,6 +7,7 @@ import com.seleniumsimplified.webdriver.basics.manipulate.windows.WindowsFAQTest
 import com.seleniumsimplified.webdriver.cookies.CookiesExercisesTest;
 import com.seleniumsimplified.webdriver.cookies.CookiesExercisesTestWorkWithExtraSync;
 import com.seleniumsimplified.webdriver.javascript.JavascriptAsyncExecutorTest;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -16,6 +17,7 @@ import org.junit.runners.Suite;
  * > geckodriver --version
  * geckodriver 0.33.0
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         /*

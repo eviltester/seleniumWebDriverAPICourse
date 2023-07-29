@@ -1,4 +1,4 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.webdriver.basics.manipulate.ManipulateExampleSelectDropDownFiveTest;
 import com.seleniumsimplified.webdriver.basics.manipulate.SendKeysExamplesTest;
@@ -9,6 +9,7 @@ import com.seleniumsimplified.webdriver.screenshots.ScreenshotCaptureNotWrittenT
 import com.seleniumsimplified.webdriver.screenshots.ScreenshotsExampleTest;
 import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsCanvasExercisesTest;
 import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsExercisesTest;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -20,6 +21,7 @@ import org.junit.runners.Suite;
  * 20191115 Status - WebDriver 3.141.59 && HtmlUnit v 2.36
  * 20160728 Status - WebDriver 2.53.1 && HtmlUnit v 2.21
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses(value = {
 

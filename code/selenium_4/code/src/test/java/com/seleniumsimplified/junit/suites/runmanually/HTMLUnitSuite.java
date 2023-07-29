@@ -1,4 +1,4 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.junit.JUnitBeforeAndAfterTest;
 import com.seleniumsimplified.junit.JUnitExampleTest;
@@ -34,6 +34,7 @@ import com.seleniumsimplified.webdriver.synchronisation.implicitWait.ImplicitWai
 import com.seleniumsimplified.webdriver.synchronisation.refactored.MakeYourWaitsReadableTest;
 import com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics.*;
 import org.htmlunit.corejs.javascript.tools.shell.Environment;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -44,6 +45,7 @@ import org.junit.runners.Suite;
 
  * 20160728 Status - WebDriver 2.53.1 && HtmlUnit v 2.21
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses(value = {
 

@@ -1,13 +1,15 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.webdriver.remote.GridTest;
 import com.seleniumsimplified.webdriver.remote.SaucelabsTest;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
  * Used to copy and paste to create a new suite!
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         GridTest.class,

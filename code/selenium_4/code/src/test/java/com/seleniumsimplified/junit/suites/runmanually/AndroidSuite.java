@@ -1,4 +1,4 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.junit.JUnitBeforeAndAfterTest;
 import com.seleniumsimplified.junit.JUnitExampleTest;
@@ -32,12 +32,14 @@ import com.seleniumsimplified.webdriver.synchronisation.implicitWait.ImplicitWai
 import com.seleniumsimplified.webdriver.synchronisation.refactored.MakeYourWaitsReadableTest;
 import com.seleniumsimplified.webdriver.synchronisation.webDriverWaitBasics.*;
 import com.seleniumsimplified.webdriver.userinteractions.UserInteractionsExercisesTest;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
 /**
  * Tests for appium
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses(value = {
         AndroidTest.class,

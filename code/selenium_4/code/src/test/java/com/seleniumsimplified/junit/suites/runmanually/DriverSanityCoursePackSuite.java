@@ -1,4 +1,4 @@
-package com.seleniumsimplified.junit.suites;
+package com.seleniumsimplified.junit.suites.runmanually;
 
 import com.seleniumsimplified.webdriver.basics.driver.FirstFirefoxTest;
 import com.seleniumsimplified.webdriver.basics.driver.FirstTest;
@@ -9,6 +9,7 @@ import com.seleniumsimplified.webdriver.screenshots.Ex1_Answer_CanWeTakeScreensh
 import com.seleniumsimplified.webdriver.screenshots.Ex2_Answer_PersistScreenshotsTest;
 import com.seleniumsimplified.webdriver.screenshots.ScreenshotsExampleTest;
 import com.seleniumsimplified.webdriver.seleniumapi.WebDriverBackedSeleniumTest;
+import org.junit.Ignore;
 import org.junit.runner.RunWith;
 import org.junit.runners.Suite;
 
@@ -16,6 +17,7 @@ import org.junit.runners.Suite;
  * This is for tests that are browser specific and control their browser setup to run
  * i.e. they don't use the Driver class so aren't cross browser
  */
+@Ignore
 @RunWith(Suite.class)
 @Suite.SuiteClasses({
         // basics.driver
