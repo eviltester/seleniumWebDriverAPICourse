@@ -1,10 +1,12 @@
-In order to use the batch files here, you need to download
+In order to use the batch files here, you need to download the grid.
 
-http://selenium.googlecode.com/files/selenium-server-standalone-3.0.1.jar
+e.g. listed on:
 
-Listed on http://seleniumhq.org/download/
+- https://selenium.dev/downloads/
 
-If the version changes from 3.0.1 then download the new selenium-server-standalone-x.xx.x.jar and amend the .bat files to reference the correct version of the jar.
+https://selenium-release.storage.googleapis.com/3.141/selenium-server-standalone-3.141.59.jar
+
+If the version changes from 3.141.59 then download the new selenium-server-standalone-x.xx.x.jar and amend the .bat files to reference the correct version of the jar.
 
 The /win folder has the files I use on windows
 
@@ -20,15 +22,15 @@ Remember:
 
 Examples:
 
-* `java -jar selenium-server-standalone-3.0.1.jar -role hub`
+* `java -jar selenium-server-standalone-3.141.59.jar -role hub`
   * will start a hub with default config
-* `java -jar selenium-server-standalone-3.0.1.jar -role node -hub http://192.168.1.139:4444/grid/register`
+* `java -jar selenium-server-standalone-3.141.59.jar -role node -hub http://192.168.1.139:4444/grid/register`
   * will start a node with default config, and register it on to the hub at 192.168.1.139
-* `java -jar selenium-server-standalone-3.0.1.jar -role node -nodeConfig node_mac.json -Dwebdriver.chrome.driver=./chromedriver`
+* `java -jar selenium-server-standalone-3.141.59.jar -role node -nodeConfig node_mac.json -Dwebdriver.chrome.driver=./chromedriver`
   * will start a node, configured by the file `node_mac.json` and where the ChromeDriver is located in the same folder and called `chromedriver`
 
 
-To run the wdci tests I would, from the project folder with the pom.xml, use:
+To run the projects tests I would, from the project folder with the pom.xml, use:
 
 mvn test -Dselenium2basics.webdriver=GRID -DWEBDRIVER_GRID_URL=http://localhost:4444/wd/hub -DWEBDRIVER_GRID_BROWSER=chrome
 
