@@ -24,4 +24,16 @@ The application under test is available online at:
 - [testpages.herokuapps.com](https://testpages.herokuapp.com/styled/index.html)
 - [source code](https://github.com/eviltester/TestingApp/tree/master/java/testingapps/seleniumtestpages)
 
+## Running
+
+It should be possible to open the root directory in IntelliJ and it will find the pom.xml in the lower level folders and tests can be run from the IDE.
+
+To run from the command line then change directory into the appropriate source directory.
+
+- e.g. for Selenium 3 `cd code/selenium_3/code`
+- e.g. for Selenium 4 `cd code/selenium_4/code`
+
+At which point:
+
+`mvn test` will run all the test packs
 

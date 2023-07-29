@@ -14,6 +14,11 @@ import org.junit.runners.Suite;
  *
  * Can run the suite with
  *
+ * This replaces the repos:
+ *     - https://github.com/eviltester/wdci
+ *     - https://github.com/eviltester/alsdemowdci
+ *     - https://github.com/eviltester/wdcibasic
+ *
  * mvn clean -Dtest=SimpleCi test
  */
 @RunWith(Suite.class)
