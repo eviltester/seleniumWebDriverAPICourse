@@ -1,5 +1,7 @@
 # Selenium WebDriver API Course
 
+[![build status](https://github.com/eviltester/seleniumWebDriverAPICourse/actions/workflows/build.yml/badge.svg)](https://github.com/eviltester/seleniumWebDriverAPICourse/actions)
+
 The source code and slides for my online training course on Selenium WebDriver.
 
 The course was originally written for Selenium 2, then updated to Selenium 3.

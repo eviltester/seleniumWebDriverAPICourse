@@ -2,6 +2,8 @@ name: build
 on:
   push:
   workflow_dispatch:
+  schedule:
+    - cron: '0 1 * * 6' # weekly check that it still works
 
 env:
   BROWSER_STATE: Headless
