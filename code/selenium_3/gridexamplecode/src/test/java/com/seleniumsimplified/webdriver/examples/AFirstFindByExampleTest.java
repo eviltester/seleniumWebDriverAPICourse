@@ -14,7 +14,7 @@ public class AFirstFindByExampleTest {
 
     @Before
     public void createDriverAndVisitTestPage(){
-        driver = Driver.get("https://testpages.herokuapp.com/styled/find-by-playground-test.html");
+        driver = Driver.get("https://testpages.eviltester.com/styled/find-by-playground-test.html");
     }
 
     @Test

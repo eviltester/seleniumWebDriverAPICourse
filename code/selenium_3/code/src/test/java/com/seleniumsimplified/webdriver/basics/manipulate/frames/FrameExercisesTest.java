@@ -12,7 +12,7 @@ public class FrameExercisesTest {
 
     # Using the nested frames page:
 
-    - https://testpages.herokuapp.com/styled/frames/frames-test.html
+    - https://testpages.eviltester.com/styled/frames/frames-test.html
     - switch to the middle frame by number (2) and assert on something in the list e.g. find "Middle List Item 1"
     - switch to the "left" frame by name and find and assert on something in the list e.g. "Left List Item 2"
     - switch to the right frame by WebElement and find and assert on something in the list e.g. "Right List Item 5"

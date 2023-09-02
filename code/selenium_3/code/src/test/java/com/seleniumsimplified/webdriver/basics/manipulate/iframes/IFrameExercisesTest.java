@@ -12,7 +12,7 @@ public class IFrameExercisesTest {
 
     # Using the nested frames page:
 
-    - https://testpages.herokuapp.com/styled/iframes-test.html
+    - https://testpages.eviltester.com/styled/iframes-test.html
     - switch to the second iframe by number (1) and assert on something on the page e.g. h1 is equal to "Nested Page Example"
     - switch to the first iframe by id "dynamic-iframe" and find and assert on something in the list e.g. "Iframe List Item 3"
     - switch to the second iframe by WebElement and find and assert on the h1 is equal to "Nested Page Example"

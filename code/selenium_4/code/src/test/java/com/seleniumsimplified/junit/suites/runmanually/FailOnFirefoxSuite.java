@@ -63,7 +63,7 @@ import org.junit.runners.Suite;
 
         /*
 
-        These work fine in 'prod' against testpages.herokuapp.com
+        These work fine in 'prod' against testpages.eviltester.com
         But fail in localhost.
 
         CookiesExercisesTestWorkWithExtraSync.class,

@@ -100,7 +100,7 @@ Where the property was set as:
 ### 18/February/2020 - refresh alerts
 
 - updated the alerts lectures and code to use the new test pages
-- https://testpages.herokuapp.com/styled/alerts/alert-test.html
+- https://testpages.eviltester.com/styled/alerts/alert-test.html
 - and created a pdf for the documentation of alerts
 
 ### 15/November/2019
@@ -114,7 +114,7 @@ Where the property was set as:
 
 I have recoded and re-recorded the frames, iframes, windows and window management sections.
 
-The new examples use the https://testpages.herokuapp.com site and are generally better and simpler.
+The new examples use the https://testpages.eviltester.com site and are generally better and simpler.
 
 ### 12/November/2019
 

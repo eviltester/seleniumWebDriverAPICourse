@@ -23,7 +23,7 @@ The Selenium 4 tests are also running on Chrome headless as a Github Action:
 
 The application under test is available online at:
 
-- [testpages.herokuapps.com](https://testpages.herokuapp.com/styled/index.html)
+- [testpages.eviltesters.com](https://testpages.eviltester.com/styled/index.html)
 - [source code](https://github.com/eviltester/TestingApp/tree/master/java/testingapps/seleniumtestpages)
 
 ## Running
@@ -39,3 +39,10 @@ At which point:
 
 `mvn test` will run all the test packs
 
+## Chromedriver on mac
+
+If you get error messages about chromdriver being unsigned then...
+
+```
+xattr -d com.apple.quarantine $(which chromedriver)
+```

@@ -20,7 +20,7 @@ public class ManipulateExampleSelectDropDownFiveTest {
 
     @Before
     public void createDriverAndVisitTestPage(){
-        driver = Driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");
+        driver = Driver.get("https://testpages.eviltester.com/styled/basic-html-form-test.html");
     }
 
     @Test

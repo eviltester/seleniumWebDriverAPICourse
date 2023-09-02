@@ -15,7 +15,7 @@ public class SiteUrls {
 //    public static String protocol(){ return "http"; }
 //    public static String rootUrl(){ return protocol() + "://" + domain(); }
 
-    public static String domain(){ return "testpages.herokuapp.com"; }
+    public static String domain(){ return "testpages.eviltester.com"; }
     public static String protocol(){ return "https"; }
     public static String rootUrl(){ return protocol() + "://" + domain(); }
 

@@ -89,7 +89,7 @@ public class CloudRemoteTest {
 
     @Test
     public void simpleInteraction(){
-       driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");
+       driver.get("https://testpages.eviltester.com/styled/basic-html-form-test.html");
 
         WebElement checkBox1 = driver.findElement(
                 By.cssSelector("input[value='cb1']"));
@@ -106,7 +106,7 @@ public class CloudRemoteTest {
     @Test
     public void findByIdOrNameMatchOnId(){
 
-        driver.get("https://testpages.herokuapp.com/styled/find-by-playground-test.html");
+        driver.get("https://testpages.eviltester.com/styled/find-by-playground-test.html");
 
         WebElement element;
         element = driver.findElement(
@@ -123,7 +123,7 @@ public class CloudRemoteTest {
         WebElement dropDownSelect;
         WebElement dropDownOption;
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");
+        driver.get("https://testpages.eviltester.com/styled/basic-html-form-test.html");
 
         dropDownSelect = driver.findElement(By.cssSelector("select[name='dropdown']"));
         dropDownOption = dropDownSelect.findElement(By.cssSelector("option[value='dd5']"));
@@ -139,7 +139,7 @@ public class CloudRemoteTest {
     @Test
     public void submitFormWithDropDown5SelectedOptionFiveDirect(){
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-html-form-test.html");
+        driver.get("https://testpages.eviltester.com/styled/basic-html-form-test.html");
 
         driver.findElement(By.cssSelector("option[value='dd5']")).click();
 

@@ -129,7 +129,7 @@ public class OperaDriverTest {
 
         WebDriver driver = new OperaDriver();
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+        driver.get("https://testpages.eviltester.com/styled/basic-web-page-test.html");
 
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
 
@@ -144,7 +144,7 @@ public class OperaDriverTest {
 
         WebDriver driver = new OperaDriver(options);
 
-        driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+        driver.get("https://testpages.eviltester.com/styled/basic-web-page-test.html");
 
         assertThat(driver.getTitle(), is("Basic Web Page Title"));
 
@@ -163,7 +163,7 @@ public class OperaDriverTest {
             options.addArguments("proxy-server=" + Driver.PROXY);
             WebDriver driver = new OperaDriver(options);
 
-            driver.get("https://testpages.herokuapp.com/styled/basic-web-page-test.html");
+            driver.get("https://testpages.eviltester.com/styled/basic-web-page-test.html");
 
             assertThat(driver.getTitle(), is("Basic Web Page Title"));
 
