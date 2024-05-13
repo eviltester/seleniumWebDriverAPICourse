@@ -16,8 +16,12 @@ public class SiteUrls {
 //    public static String protocol(){ return "http"; }
 //    public static String rootUrl(){ return protocol() + "://" + domain(); }
 
-    public static String domain(){ return "testpages.eviltester.com"; }
-    public static String protocol(){ return "https"; }
+    public static String domain(){ //return "localhost:4567";
+        return "testpages.eviltester.com";
+    }
+    public static String protocol(){ //return "http";
+        return "https";
+    }
     public static String rootUrl(){ return protocol() + "://" + domain(); }
 
     // the actual pages

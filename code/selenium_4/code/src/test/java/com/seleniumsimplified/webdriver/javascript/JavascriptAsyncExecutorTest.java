@@ -45,7 +45,7 @@ public class JavascriptAsyncExecutorTest {
 
         JavascriptExecutor js =(JavascriptExecutor)driver;
 
-        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
 
         js.executeScript("window.webdrivercallback = function(){};" +
                 //extend the hide method to call our callback when it hides the gif

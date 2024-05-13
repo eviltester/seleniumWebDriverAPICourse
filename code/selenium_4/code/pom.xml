@@ -15,8 +15,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- configure the compiler via properties rather than plugin -->
-        <maven.compiler.source>11</maven.compiler.source>
-        <maven.compiler.target>11</maven.compiler.target>
+        <maven.compiler.source>18</maven.compiler.source>
+        <maven.compiler.target>18</maven.compiler.target>
 
         <!-- <webdriver.version>2.53.1</webdriver.version> -->
         <!-- AllBrowserTests: webdriver 3.3.1 Chromedriver 2.32 and Chrome 61.0.3163.100 - clean run -->
@@ -78,7 +78,7 @@ We use
         </dependency>
 
          -->
-        <webdriver.version>4.10.0</webdriver.version>
+        <webdriver.version>4.20.0</webdriver.version>
 
         <!--
          Selenium 4 currently doesn't support Actions and the Select support class doesn't

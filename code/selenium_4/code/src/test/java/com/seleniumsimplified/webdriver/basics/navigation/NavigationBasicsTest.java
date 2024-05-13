@@ -31,8 +31,7 @@ public class NavigationBasicsTest {
     public void navigateWithGet(){
         driver.get(SiteUrls.rootUrl());
 
-        assertTrue(driver.getTitle().startsWith(
-                    "Selenium"));
+        assertTrue(driver.getTitle().startsWith("Web Testing"));
     }
 
     @Test

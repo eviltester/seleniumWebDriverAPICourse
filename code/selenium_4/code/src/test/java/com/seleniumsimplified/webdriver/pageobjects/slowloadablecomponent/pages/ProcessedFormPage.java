@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.SlowLoadableComponent;
 
 import java.time.Clock;
+import java.time.Duration;
 
 
 public class ProcessedFormPage extends SlowLoadableComponent<ProcessedFormPage> {
@@ -13,7 +14,7 @@ public class ProcessedFormPage extends SlowLoadableComponent<ProcessedFormPage> 
 
 
     public ProcessedFormPage(WebDriver aDriver) {
-        super(Clock.systemDefaultZone(), 10);
+        super(Clock.systemDefaultZone(), Duration.ofSeconds(10));
         driver = aDriver;
     }
 

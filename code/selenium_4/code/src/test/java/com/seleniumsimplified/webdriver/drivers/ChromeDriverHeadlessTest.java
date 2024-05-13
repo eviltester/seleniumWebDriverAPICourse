@@ -135,21 +135,6 @@ public class ChromeDriverHeadlessTest {
     }
 
     @Test
-    public void basicHeadlessChromeUsage(){
-
-        ChromeOptions options = new ChromeOptions();
-        options.setHeadless(true);
-
-        WebDriver driver = new ChromeDriver(options);
-
-        driver.get(SiteUrls.basicWebPageUrl());
-
-        Assert.assertEquals(driver.getTitle(), "Basic Web Page Title");
-
-        driver.quit();
-    }
-
-    @Test
     public void headlessChromeUsageViaArguments(){
 
         ChromeOptions options = new ChromeOptions();
@@ -197,7 +182,7 @@ public class ChromeDriverHeadlessTest {
 
             // http://peter.sh/experiments/chromium-command-line-switches/
             ChromeOptions options = new ChromeOptions();
-            options.setHeadless(true);
+            options.addArguments("--headless");
 
             // NOTE: setting the setSslProxy is important otherwise it
             // will not send https traffic through the proxy

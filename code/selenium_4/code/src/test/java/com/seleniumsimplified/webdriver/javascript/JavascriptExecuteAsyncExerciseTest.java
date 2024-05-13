@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import static org.hamcrest.Matchers.containsString;
@@ -35,7 +36,7 @@ public class JavascriptExecuteAsyncExerciseTest {
     @Test
     public void waitInBrowserForTimeSample(){
 
-        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
 
         long start = System.currentTimeMillis();
         ((JavascriptExecutor) driver).executeAsyncScript(
@@ -53,7 +54,7 @@ public class JavascriptExecuteAsyncExerciseTest {
     public void useXMLHttpRequest(){
 
 
-        driver.manage().timeouts().setScriptTimeout(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().scriptTimeout(Duration.ofSeconds(10));
 
         Object response = ((JavascriptExecutor) driver).executeAsyncScript(
                 "var callback = arguments[arguments.length - 1];" +

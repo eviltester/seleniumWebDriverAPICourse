@@ -136,21 +136,6 @@ public class FirefoxHeadlessTest {
     }
 
     @Test
-    public void basicHeadlessFirefoxUsage(){
-
-        FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(true);
-
-        WebDriver driver = new FirefoxDriver(options);
-
-        driver.get(SiteUrls.basicWebPageUrl());
-
-        Assert.assertEquals(driver.getTitle(), "Basic Web Page Title");
-
-        driver.close();
-    }
-
-    @Test
     public void headlessFirefoxUsageViaArguments(){
 
         FirefoxOptions options = new FirefoxOptions();
@@ -173,7 +158,7 @@ public class FirefoxHeadlessTest {
         // Note, we don't have to use headless mode to change the useragent
         // but most of the time if we are pretending to be other browsers we
         // will probably do that headless
-        options.setHeadless(true);
+        options.addArguments("--headless");
 
         // pretending to be a Galaxy Note II mobile by setting useragent
         // via a Firefox profile
@@ -207,7 +192,7 @@ public class FirefoxHeadlessTest {
         }
 
         FirefoxOptions options = new FirefoxOptions();
-        options.setHeadless(true);
+        options.addArguments("--headless");
 
         // NOTE: setting the setSslProxy is important otherwise it
         // will not send https traffic through the proxy

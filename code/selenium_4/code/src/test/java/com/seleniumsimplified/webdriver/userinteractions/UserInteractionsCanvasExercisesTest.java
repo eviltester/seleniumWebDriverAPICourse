@@ -36,6 +36,7 @@ public class UserInteractionsCanvasExercisesTest {
         // of the code
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("canvas")));
+        driver.findElement(By.id("show-events-button")).click();
         wait.until(ExpectedConditions.presenceOfElementLocated(By.id("draweventslist")));
 
         // Appium does not support ExpectedConditions.elementToBeClickable @20160608
